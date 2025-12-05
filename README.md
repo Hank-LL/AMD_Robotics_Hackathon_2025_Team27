@@ -1,0 +1,2 @@
+# AMD_Robotics_Hackathon_2025_Team27
+AMD_Robotics_Hackathon_2025_[プロジェクト名]
