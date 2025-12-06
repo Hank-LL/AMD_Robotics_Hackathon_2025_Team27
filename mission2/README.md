@@ -47,8 +47,8 @@
 
     subgraph "Execution Pipeline"
         Gemini -->|3. Select Appropriate Model| HF_Hub
-        HF_Hub -->|4. Load & Run| TargetModel
+        HF_Hub -->|4. Load| TargetModel
     end
 
-    TargetModel -->|Inference| RobotArm
+    TargetModel -->|5. Inference| RobotArm
 ```
