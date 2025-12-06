@@ -48,8 +48,8 @@ class ModelInference:
         
         return self.cached_model_paths
 
-    def run_inference(self, model_name, task="Pick and place", repo_id=None, 
-                    episode_time_s=20, num_episodes=1, display_data=True):
+    def run_inference(self, model_name, task="Serve ordered sushi", repo_id=None, 
+                    episode_time_s=40, num_episodes=1, display_data=True):
         if model_name not in self.model_paths:
             raise ValueError(f"Model {model_name} is not available.")
         
@@ -76,7 +76,7 @@ class ModelInference:
             f"--policy.path={hf_repo_id}",
             "--dataset.push_to_hub=false",
             f"--display_data={str(display_data).lower()}",
-            f"--resume={str(resume).lower()}"
+            f"--resume=true"  # {str(resume).lower()}"
         ]
         
         print(f"Running inference for {model_name}...")

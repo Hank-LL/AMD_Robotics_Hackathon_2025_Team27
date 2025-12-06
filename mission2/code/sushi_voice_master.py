@@ -17,16 +17,19 @@ from model_inference import ModelInference
 # Sushi menu definition
 SUSHI_MENU = ["egg", "tuna", "cucumber roll", "tempura (fried shrimp)"]
 
+# HuggingFace configuration
+HF_USERNAME = "your_hf_username"  # Replace with your HuggingFace username
+
 # Sushi model paths (HuggingFace repositories)
 SUSHI_MODEL_PATHS = {
-    'egg': 'ServeEggSushi',
-    'tuna': 'ServeTunaSushi',
-    'tempura (fried shrimp)': 'ServeTempuraSushi',
-    'cucumber roll': 'ServeCucumberRoll'
+    'egg': f'{HF_USERNAME}/ServeEggSushi',
+    'tuna': f'{HF_USERNAME}/ServeTunaSushi',
+    'tempura (fried shrimp)': f'{HF_USERNAME}/ServeTempuraSushi',
+    'cucumber roll': f'{HF_USERNAME}/ServeCucumberRoll'
 }
 
 # Gemini API configuration (retrieved from environment variable)
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
+GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY',"")
 
 # Configuration
 MODEL_SIZE = "small"     # "tiny", "base", "small", "medium", "large-v2", "large-v3"
@@ -36,7 +39,7 @@ LANGUAGE = "en"          # "ja" (Japanese), "en" (English)
 RECORD_SECONDS = 7       # Recording duration (seconds)
 
 # Microphone settings
-MIC_DEVICE = 11 # provided: 5           # USB Microphone (USB PnP Audio Device)
+MIC_DEVICE = 5           # USB Microphone (USB PnP Audio Device)
 MIC_SAMPLE_RATE = 48000  # Microphone sample rate
 MIC_CHANNELS = 1         # Mono
 WHISPER_SAMPLE_RATE = 16000  # Sample rate required by Whisper
@@ -82,7 +85,7 @@ def execute_sushi_serving(orders):
             inference_runner.run_inference(
                 model_name=order,
                 task=f"Serve {order} sushi",
-                repo_id=f"eval_{order.replace(' ', '_')}",
+                repo_id=f"{HF_USERNAME}/eval_{order.replace(' ', '_')}",
                 episode_time_s=20,
                 num_episodes=1,
                 display_data=True
