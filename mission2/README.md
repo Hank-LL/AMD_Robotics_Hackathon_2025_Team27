@@ -32,8 +32,7 @@
     Whisper[Whisper Library]:::process
     Gemini{{Gemini API}}:::logic
     HF_Hub[Hugging Face Hub]:::storage
-    TargetModel[Target AI Model]:::process
-    Result([Final Output]):::input
+    TargetModel[Target AI Model]:::input
 
     %% Flow
     User -->|1. Voice Order| Whisper
@@ -49,6 +48,4 @@
         Gemini -->|3. Select Appropriate Model| HF_Hub
         HF_Hub -->|4. Load| TargetModel
     end
-
-    TargetModel -->|5. Inference| RobotArm
 ```
