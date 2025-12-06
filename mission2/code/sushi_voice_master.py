@@ -110,13 +110,14 @@ Customer's statement:
 "{text}"
 
 Instructions:
-1. Identify the sushi ordered by the customer from the menu
-2. If there are expressions like "recommendation", "suggest", or "your choice", return "recommendation": true
-3. If the text is unclear, infer the menu item with similar pronunciation
-4. Must return in the following JSON format (no other explanation needed):
+1. Identify ONLY ONE sushi item that the customer ordered from the menu
+2. If multiple items are mentioned, select only the first or most prominent one
+3. If there are expressions like "recommendation", "suggest", or "your choice", return "recommendation": true
+4. If the text is unclear, infer the menu item with similar pronunciation
+5. Must return in the following JSON format (no other explanation needed):
 
 {{
-    "orders": [list of ordered sushi],
+    "order": "single sushi item name",
     "recommendation": true or false,
     "confidence": "high" or "medium" or "low"
 }}
