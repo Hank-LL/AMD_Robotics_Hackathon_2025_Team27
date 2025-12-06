@@ -2,10 +2,10 @@
 **Title:** AMD_RoboticHackathon2025-[Your Work of Mission2]
 
 **Team:** 中野同好会(Nakano Club)  
-	- 松田 侑也(Yuya Matsuda)  
-	- 清崎 大地(Daichi Kiyozaki)  
-	- 渡邉 凌大(Ryota Watanabe)  
-	- 高岡 充希(Mitsuki Takaoka)  
+* 松田 侑也(Yuya Matsuda)  
+* 清崎 大地(Daichi Kiyozaki)  
+* 渡邉 凌大(Ryota Watanabe)  
+* 高岡 充希(Mitsuki Takaoka)  
 
 **Summary** <of your task>
 ...
