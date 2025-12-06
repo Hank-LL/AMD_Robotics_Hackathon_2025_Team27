@@ -1,6 +1,6 @@
-# mission2の概要
-## タスク
-- 
-## 入力情報
+# Mission 2 Overview
+## Tasks
+-
+## Input Information
 
-## 学習概要 
+## Learning Overview 
