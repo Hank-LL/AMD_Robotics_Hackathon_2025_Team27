@@ -95,6 +95,10 @@ def recognize_order_with_gemini(text):
     """
     Flexibly recognize order content using Gemini API
     """
+    if not GEMINI_API_KEY:
+        print("⚠️  GEMINI_API_KEY environment variable is not set.")
+        return None
+    
     genai.configure(api_key=GEMINI_API_KEY)
     model = genai.GenerativeModel('gemini-2.5-flash')  # or 'gemini-2.0-flash'
     
@@ -140,7 +144,7 @@ Instructions:
         if result.get("recommendation", False):
             random_sushi = random.choice(SUSHI_MENU)
             print(f"\n💡 Today's recommendation is '{random_sushi}'!")
-            result["orders"] = [random_sushi]
+            result["order"] = random_sushi
         
         return result
     
@@ -188,28 +192,27 @@ def main():
     result = recognize_order_with_gemini(text)
     
     if result:
-        orders = result.get("orders", [])
+        order = result.get("order")
         confidence = result.get("confidence", "unknown")
         
         print("\n" + "=" * 50)
-        if orders:
+        if order:
             print(f"【Order】 (Confidence: {confidence})")
-            for order in orders:
-                print(f"  ✓ {order}")
+            print(f"  ✓ {order}")
             print("=" * 50)
             
             # Execute robot serving
             print("\n🤖 Starting robot serving sequence...")
-            execute_sushi_serving(orders)
+            execute_sushi_serving([order])
         else:
             print("Order could not be recognized.")
             print(f"Menu: {', '.join(SUSHI_MENU)}")
             print("=" * 50)
         
-        return text, orders
+        return text, order
     else:
         print("\n⚠️  Failed to recognize order")
-        return text, []
+        return text, None
 
 if __name__ == "__main__":
     main()
