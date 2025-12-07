@@ -1,0 +1,170 @@
+INFO 2025-12-07 05:26:57 db_utils.py:102 [1m[34mLogs will be synced with wandb.[0m
+INFO 2025-12-07 05:26:57 db_utils.py:103 Track this run --> [1m[33mhttps://wandb.ai/kiyodai02-meiji/lerobot/runs/z26lmuo0[0m
+INFO 2025-12-07 05:26:57 ot_train.py:183 Creating dataset
+INFO 2025-12-07 05:26:57 _client.py:1025 HTTP Request: GET https://huggingface.co/api/datasets/HankLL/ServeTeacup/refs "HTTP/1.1 200 OK"
+INFO 2025-12-07 05:26:57 _client.py:1025 HTTP Request: GET https://huggingface.co/api/datasets/HankLL/ServeTeacup/revision/v3.0 "HTTP/1.1 200 OK"
+Downloading (incomplete total...): 0.00B [00:00, ?B/s]                          INFO 2025-12-07 05:26:57 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/HankLL/ServeTeacup/resolve/fd08517528e73f0b717d3cc70e5f141db590f269/meta/tasks.parquet "HTTP/1.1 302 Found"
+INFO 2025-12-07 05:26:57 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/HankLL/ServeTeacup/resolve/fd08517528e73f0b717d3cc70e5f141db590f269/meta/info.json "HTTP/1.1 307 Temporary Redirect"
+INFO 2025-12-07 05:26:57 _client.py:1025 HTTP Request: GET https://huggingface.co/api/datasets/HankLL/ServeTeacup/xet-read-token/fd08517528e73f0b717d3cc70e5f141db590f269 "HTTP/1.1 200 OK"
+Downloading (incomplete total...):   0%|            | 0.00/2.16k [00:00<?, ?B/s]INFO 2025-12-07 05:26:57 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/HankLL/ServeTeacup/fd08517528e73f0b717d3cc70e5f141db590f269/meta%2Finfo.json "HTTP/1.1 200 OK"
+INFO 2025-12-07 05:26:57 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/HankLL/ServeTeacup/resolve/fd08517528e73f0b717d3cc70e5f141db590f269/meta/episodes/chunk-000/file-000.parquet "HTTP/1.1 302 Found"
+Downloading (incomplete total...):   0%|             | 0.00/187k [00:00<?, ?B/s]INFO 2025-12-07 05:26:57 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/HankLL/ServeTeacup/resolve/fd08517528e73f0b717d3cc70e5f141db590f269/meta/stats.json "HTTP/1.1 307 Temporary Redirect"
+INFO 2025-12-07 05:26:57 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/datasets/HankLL/ServeTeacup/fd08517528e73f0b717d3cc70e5f141db590f269/meta%2Finfo.json "HTTP/1.1 200 OK"
+Downloading (incomplete total...):   2%|    | 3.23k/187k [00:00<00:07, 25.3kB/s]INFO 2025-12-07 05:26:57 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/HankLL/ServeTeacup/fd08517528e73f0b717d3cc70e5f141db590f269/meta%2Fstats.json "HTTP/1.1 200 OK"
+INFO 2025-12-07 05:26:57 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/datasets/HankLL/ServeTeacup/fd08517528e73f0b717d3cc70e5f141db590f269/meta%2Fstats.json "HTTP/1.1 200 OK"
+Fetching 4 files: 100%|███████████████████████████| 4/4 [00:00<00:00,  8.92it/s]
+Download complete: : 203kB [00:00, 366kB/s]                                     
+INFO 2025-12-07 05:26:58 _client.py:1025 HTTP Request: GET https://huggingface.co/api/datasets/HankLL/ServeTeacup/refs "HTTP/1.1 200 OK"
+INFO 2025-12-07 05:26:58 _client.py:1025 HTTP Request: GET https://huggingface.co/api/datasets/HankLL/ServeTeacup/revision/v3.0 "HTTP/1.1 200 OK"
+Downloading (incomplete total...): 0.00B [00:00, ?B/s]                          INFO 2025-12-07 05:26:58 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/HankLL/ServeTeacup/resolve/fd08517528e73f0b717d3cc70e5f141db590f269/data/chunk-000/file-000.parquet "HTTP/1.1 302 Found"
+Downloading (incomplete total...):   0%|            | 0.00/1.83M [00:00<?, ?B/s]INFO 2025-12-07 05:26:58 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/HankLL/ServeTeacup/resolve/fd08517528e73f0b717d3cc70e5f141db590f269/README.md "HTTP/1.1 307 Temporary Redirect"
+INFO 2025-12-07 05:26:58 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/HankLL/ServeTeacup/resolve/fd08517528e73f0b717d3cc70e5f141db590f269/videos/observation.images.wrist/chunk-000/file-000.mp4 "HTTP/1.1 302 Found"
+INFO 2025-12-07 05:26:58 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/HankLL/ServeTeacup/resolve/fd08517528e73f0b717d3cc70e5f141db590f269/.gitattributes "HTTP/1.1 307 Temporary Redirect"
+Downloading (incomplete total...):   0%|             | 0.00/175M [00:00<?, ?B/s]INFO 2025-12-07 05:26:58 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/HankLL/ServeTeacup/resolve/fd08517528e73f0b717d3cc70e5f141db590f269/videos/observation.images.top/chunk-000/file-001.mp4 "HTTP/1.1 302 Found"
+Downloading (incomplete total...):   0%|             | 0.00/284M [00:00<?, ?B/s]INFO 2025-12-07 05:26:58 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/HankLL/ServeTeacup/resolve/fd08517528e73f0b717d3cc70e5f141db590f269/videos/observation.images.top/chunk-000/file-000.mp4 "HTTP/1.1 302 Found"
+Downloading (incomplete total...):   0%|             | 0.00/798M [00:00<?, ?B/s]INFO 2025-12-07 05:26:58 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/HankLL/ServeTeacup/fd08517528e73f0b717d3cc70e5f141db590f269/README.md "HTTP/1.1 200 OK"
+INFO 2025-12-07 05:26:58 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/HankLL/ServeTeacup/fd08517528e73f0b717d3cc70e5f141db590f269/.gitattributes "HTTP/1.1 200 OK"
+INFO 2025-12-07 05:26:58 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/datasets/HankLL/ServeTeacup/fd08517528e73f0b717d3cc70e5f141db590f269/README.md "HTTP/1.1 200 OK"
+Downloading (incomplete total...):   0%|  | 3.72k/798M [00:00<6:31:54, 33.9kB/s]INFO 2025-12-07 05:26:58 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/datasets/HankLL/ServeTeacup/fd08517528e73f0b717d3cc70e5f141db590f269/.gitattributes "HTTP/1.1 200 OK"
+Fetching 10 files: 100%|████████████████████████| 10/10 [00:01<00:00,  6.15it/s]
+Download complete: : 798MB [00:01, 475MB/s]                                     
+INFO 2025-12-07 05:27:00 ot_train.py:202 Creating policy
+INFO 2025-12-07 05:27:00 ot_train.py:247 Creating optimizer and scheduler
+INFO 2025-12-07 05:27:00 ot_train.py:259 [1m[33mOutput dir:[0m outputs/train/serve_tea_cup
+INFO 2025-12-07 05:27:00 ot_train.py:262 cfg.steps=10000 (10K)
+INFO 2025-12-07 05:27:00 ot_train.py:263 dataset.num_frames=42555 (43K)
+INFO 2025-12-07 05:27:00 ot_train.py:264 dataset.num_episodes=40
+INFO 2025-12-07 05:27:00 ot_train.py:267 Effective batch size: 64 x 1 = 64
+INFO 2025-12-07 05:27:00 ot_train.py:268 num_learnable_params=51597190 (52M)
+INFO 2025-12-07 05:27:00 ot_train.py:269 num_total_params=51597190 (52M)
+INFO 2025-12-07 05:27:00 ot_train.py:324 Start offline training on a fixed dataset
+INFO 2025-12-07 05:28:46 ot_train.py:351 step:200 smpl:13K ep:12 epch:0.30 loss:5.588 grdn:82.033 lr:1.0e-05 updt_s:0.507 data_s:0.020
+INFO 2025-12-07 05:29:39 ot_train.py:351 step:400 smpl:26K ep:24 epch:0.60 loss:2.115 grdn:37.746 lr:1.0e-05 updt_s:0.254 data_s:0.009
+INFO 2025-12-07 05:30:31 ot_train.py:351 step:600 smpl:38K ep:36 epch:0.90 loss:1.644 grdn:33.551 lr:1.0e-05 updt_s:0.253 data_s:0.009
+INFO 2025-12-07 05:39:00 ot_train.py:351 step:800 smpl:51K ep:48 epch:1.20 loss:1.308 grdn:31.791 lr:1.0e-05 updt_s:2.510 data_s:0.033
+INFO 2025-12-07 05:39:53 ot_train.py:351 step:1K smpl:64K ep:60 epch:1.50 loss:1.057 grdn:28.454 lr:1.0e-05 updt_s:0.254 data_s:0.009
+INFO 2025-12-07 05:39:53 ot_train.py:361 Checkpoint policy after step 1000
+INFO 2025-12-07 05:40:47 ot_train.py:351 step:1K smpl:77K ep:72 epch:1.80 loss:0.855 grdn:25.012 lr:1.0e-05 updt_s:0.253 data_s:0.009
+INFO 2025-12-07 05:41:45 ot_train.py:351 step:1K smpl:90K ep:84 epch:2.11 loss:0.688 grdn:22.570 lr:1.0e-05 updt_s:0.253 data_s:0.040
+INFO 2025-12-07 05:42:38 ot_train.py:351 step:2K smpl:102K ep:96 epch:2.41 loss:0.559 grdn:20.314 lr:1.0e-05 updt_s:0.254 data_s:0.009
+INFO 2025-12-07 05:43:31 ot_train.py:351 step:2K smpl:115K ep:108 epch:2.71 loss:0.464 grdn:18.593 lr:1.0e-05 updt_s:0.253 data_s:0.009
+INFO 2025-12-07 05:44:29 ot_train.py:351 step:2K smpl:128K ep:120 epch:3.01 loss:0.392 grdn:17.586 lr:1.0e-05 updt_s:0.254 data_s:0.036
+INFO 2025-12-07 05:44:29 ot_train.py:361 Checkpoint policy after step 2000
+INFO 2025-12-07 05:45:23 ot_train.py:351 step:2K smpl:141K ep:132 epch:3.31 loss:0.338 grdn:16.468 lr:1.0e-05 updt_s:0.253 data_s:0.009
+INFO 2025-12-07 05:46:15 ot_train.py:351 step:2K smpl:154K ep:144 epch:3.61 loss:0.298 grdn:15.588 lr:1.0e-05 updt_s:0.253 data_s:0.009
+INFO 2025-12-07 05:47:08 ot_train.py:351 step:3K smpl:166K ep:156 epch:3.91 loss:0.272 grdn:14.680 lr:1.0e-05 updt_s:0.253 data_s:0.009
+INFO 2025-12-07 05:48:06 ot_train.py:351 step:3K smpl:179K ep:168 epch:4.21 loss:0.248 grdn:14.279 lr:1.0e-05 updt_s:0.253 data_s:0.036
+INFO 2025-12-07 05:48:59 ot_train.py:351 step:3K smpl:192K ep:180 epch:4.51 loss:0.230 grdn:13.375 lr:1.0e-05 updt_s:0.254 data_s:0.009
+INFO 2025-12-07 05:48:59 ot_train.py:361 Checkpoint policy after step 3000
+INFO 2025-12-07 05:49:53 ot_train.py:351 step:3K smpl:205K ep:193 epch:4.81 loss:0.215 grdn:13.021 lr:1.0e-05 updt_s:0.253 data_s:0.009
+INFO 2025-12-07 05:50:52 ot_train.py:351 step:3K smpl:218K ep:205 epch:5.11 loss:0.203 grdn:12.514 lr:1.0e-05 updt_s:0.254 data_s:0.042
+INFO 2025-12-07 05:51:45 ot_train.py:351 step:4K smpl:230K ep:217 epch:5.41 loss:0.192 grdn:12.111 lr:1.0e-05 updt_s:0.253 data_s:0.009
+INFO 2025-12-07 05:52:37 ot_train.py:351 step:4K smpl:243K ep:229 epch:5.71 loss:0.183 grdn:11.592 lr:1.0e-05 updt_s:0.253 data_s:0.009
+INFO 2025-12-07 05:53:35 ot_train.py:351 step:4K smpl:256K ep:241 epch:6.02 loss:0.176 grdn:11.134 lr:1.0e-05 updt_s:0.254 data_s:0.036
+INFO 2025-12-07 05:53:35 ot_train.py:361 Checkpoint policy after step 4000
+INFO 2025-12-07 05:54:29 ot_train.py:351 step:4K smpl:269K ep:253 epch:6.32 loss:0.168 grdn:10.611 lr:1.0e-05 updt_s:0.254 data_s:0.009
+INFO 2025-12-07 05:55:22 ot_train.py:351 step:4K smpl:282K ep:265 epch:6.62 loss:0.161 grdn:9.515 lr:1.0e-05 updt_s:0.253 data_s:0.009
+INFO 2025-12-07 05:56:15 ot_train.py:351 step:5K smpl:294K ep:277 epch:6.92 loss:0.157 grdn:10.288 lr:1.0e-05 updt_s:0.254 data_s:0.009
+INFO 2025-12-07 05:57:13 ot_train.py:351 step:5K smpl:307K ep:289 epch:7.22 loss:0.150 grdn:9.816 lr:1.0e-05 updt_s:0.254 data_s:0.039
+INFO 2025-12-07 05:58:06 ot_train.py:351 step:5K smpl:320K ep:301 epch:7.52 loss:0.146 grdn:9.307 lr:1.0e-05 updt_s:0.253 data_s:0.009
+INFO 2025-12-07 05:58:06 ot_train.py:361 Checkpoint policy after step 5000
+INFO 2025-12-07 05:59:00 ot_train.py:351 step:5K smpl:333K ep:313 epch:7.82 loss:0.142 grdn:9.332 lr:1.0e-05 updt_s:0.253 data_s:0.009
+INFO 2025-12-07 05:59:58 ot_train.py:351 step:5K smpl:346K ep:325 epch:8.12 loss:0.138 grdn:9.745 lr:1.0e-05 updt_s:0.254 data_s:0.036
+INFO 2025-12-07 06:00:51 ot_train.py:351 step:6K smpl:358K ep:337 epch:8.42 loss:0.134 grdn:8.807 lr:1.0e-05 updt_s:0.253 data_s:0.009
+INFO 2025-12-07 06:01:43 ot_train.py:351 step:6K smpl:371K ep:349 epch:8.72 loss:0.131 grdn:8.912 lr:1.0e-05 updt_s:0.254 data_s:0.009
+INFO 2025-12-07 06:02:42 ot_train.py:351 step:6K smpl:384K ep:361 epch:9.02 loss:0.129 grdn:8.834 lr:1.0e-05 updt_s:0.254 data_s:0.040
+INFO 2025-12-07 06:02:42 ot_train.py:361 Checkpoint policy after step 6000
+INFO 2025-12-07 06:03:36 ot_train.py:351 step:6K smpl:397K ep:373 epch:9.32 loss:0.125 grdn:7.902 lr:1.0e-05 updt_s:0.254 data_s:0.009
+INFO 2025-12-07 06:04:29 ot_train.py:351 step:6K smpl:410K ep:385 epch:9.63 loss:0.123 grdn:8.469 lr:1.0e-05 updt_s:0.254 data_s:0.009
+INFO 2025-12-07 06:05:22 ot_train.py:351 step:7K smpl:422K ep:397 epch:9.93 loss:0.120 grdn:8.448 lr:1.0e-05 updt_s:0.255 data_s:0.009
+INFO 2025-12-07 06:06:21 ot_train.py:351 step:7K smpl:435K ep:409 epch:10.23 loss:0.117 grdn:7.935 lr:1.0e-05 updt_s:0.256 data_s:0.040
+INFO 2025-12-07 06:07:14 ot_train.py:351 step:7K smpl:448K ep:421 epch:10.53 loss:0.114 grdn:7.363 lr:1.0e-05 updt_s:0.255 data_s:0.009
+INFO 2025-12-07 06:07:14 ot_train.py:361 Checkpoint policy after step 7000
+INFO 2025-12-07 06:08:08 ot_train.py:351 step:7K smpl:461K ep:433 epch:10.83 loss:0.114 grdn:7.883 lr:1.0e-05 updt_s:0.255 data_s:0.009
+INFO 2025-12-07 06:09:07 ot_train.py:351 step:7K smpl:474K ep:445 epch:11.13 loss:0.111 grdn:7.729 lr:1.0e-05 updt_s:0.255 data_s:0.040
+INFO 2025-12-07 06:10:00 ot_train.py:351 step:8K smpl:486K ep:457 epch:11.43 loss:0.109 grdn:7.308 lr:1.0e-05 updt_s:0.255 data_s:0.009
+INFO 2025-12-07 06:10:53 ot_train.py:351 step:8K smpl:499K ep:469 epch:11.73 loss:0.108 grdn:7.162 lr:1.0e-05 updt_s:0.254 data_s:0.009
+INFO 2025-12-07 06:11:52 ot_train.py:351 step:8K smpl:512K ep:481 epch:12.03 loss:0.106 grdn:7.297 lr:1.0e-05 updt_s:0.256 data_s:0.037
+INFO 2025-12-07 06:11:52 ot_train.py:361 Checkpoint policy after step 8000
+INFO 2025-12-07 06:12:46 ot_train.py:351 step:8K smpl:525K ep:493 epch:12.33 loss:0.104 grdn:7.513 lr:1.0e-05 updt_s:0.254 data_s:0.009
+INFO 2025-12-07 06:13:39 ot_train.py:351 step:8K smpl:538K ep:505 epch:12.63 loss:0.102 grdn:6.783 lr:1.0e-05 updt_s:0.255 data_s:0.009
+INFO 2025-12-07 06:14:32 ot_train.py:351 step:9K smpl:550K ep:517 epch:12.93 loss:0.101 grdn:7.362 lr:1.0e-05 updt_s:0.255 data_s:0.009
+INFO 2025-12-07 06:15:31 ot_train.py:351 step:9K smpl:563K ep:529 epch:13.23 loss:0.099 grdn:7.244 lr:1.0e-05 updt_s:0.254 data_s:0.040
+INFO 2025-12-07 06:16:23 ot_train.py:351 step:9K smpl:576K ep:541 epch:13.54 loss:0.098 grdn:6.561 lr:1.0e-05 updt_s:0.254 data_s:0.009
+INFO 2025-12-07 06:16:23 ot_train.py:361 Checkpoint policy after step 9000
+INFO 2025-12-07 06:17:18 ot_train.py:351 step:9K smpl:589K ep:553 epch:13.84 loss:0.097 grdn:6.905 lr:1.0e-05 updt_s:0.254 data_s:0.009
+INFO 2025-12-07 06:18:16 ot_train.py:351 step:9K smpl:602K ep:565 epch:14.14 loss:0.095 grdn:6.660 lr:1.0e-05 updt_s:0.255 data_s:0.038
+INFO 2025-12-07 06:19:09 ot_train.py:351 step:10K smpl:614K ep:578 epch:14.44 loss:0.094 grdn:6.445 lr:1.0e-05 updt_s:0.254 data_s:0.009
+INFO 2025-12-07 06:20:02 ot_train.py:351 step:10K smpl:627K ep:590 epch:14.74 loss:0.093 grdn:7.103 lr:1.0e-05 updt_s:0.255 data_s:0.009
+INFO 2025-12-07 06:21:01 ot_train.py:351 step:10K smpl:640K ep:602 epch:15.04 loss:0.091 grdn:6.408 lr:1.0e-05 updt_s:0.255 data_s:0.039
+INFO 2025-12-07 06:21:01 ot_train.py:361 Checkpoint policy after step 10000
+INFO 2025-12-07 06:21:02 ot_train.py:430 End of training
+INFO 2025-12-07 06:21:02 _client.py:1025 HTTP Request: POST https://huggingface.co/api/repos/create "HTTP/1.1 403 Forbidden"
+INFO 2025-12-07 06:21:02 _client.py:1025 HTTP Request: GET https://huggingface.co/api/models/HankLL/ServeTeacup "HTTP/1.1 200 OK"
+INFO 2025-12-07 06:21:03 _client.py:1025 HTTP Request: POST https://huggingface.co/api/validate-yaml "HTTP/1.1 200 OK"
+INFO 2025-12-07 06:21:03 _client.py:1025 HTTP Request: POST https://huggingface.co/api/validate-yaml "HTTP/1.1 200 OK"
+INFO 2025-12-07 06:21:03 _client.py:1025 HTTP Request: POST https://huggingface.co/api/validate-yaml "HTTP/1.1 200 OK"
+INFO 2025-12-07 06:21:03 _client.py:1025 HTTP Request: POST https://huggingface.co/api/models/HankLL/ServeTeacup/preupload/main "HTTP/1.1 200 OK"
+INFO 2025-12-07 06:21:03 _client.py:1025 HTTP Request: POST https://huggingface.co/HankLL/ServeTeacup.git/info/lfs/objects/batch "HTTP/1.1 403 Forbidden"
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 657, in hf_raise_for_status
+    response.raise_for_status()
+  File "/opt/venv/lib/python3.12/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '403 Forbidden' for url 'https://huggingface.co/HankLL/ServeTeacup.git/info/lfs/objects/batch'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/venv/bin/lerobot-train", line 7, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/workspace/lerobot/src/lerobot/scripts/lerobot_train.py", line 444, in main
+    train()
+  File "/workspace/lerobot/src/lerobot/configs/parser.py", line 233, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/lerobot/src/lerobot/scripts/lerobot_train.py", line 434, in train
+    unwrapped_policy.push_model_to_hub(cfg)
+  File "/workspace/lerobot/src/lerobot/policies/pretrained.py", line 228, in push_model_to_hub
+    commit_info = api.upload_folder(
+                  ^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/hf_api.py", line 1679, in _inner
+    return fn(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/hf_api.py", line 4881, in upload_folder
+    return self.create_commit(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/hf_api.py", line 1679, in _inner
+    return fn(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/hf_api.py", line 4204, in create_commit
+    self.preupload_lfs_files(
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/hf_api.py", line 4469, in preupload_lfs_files
+    _upload_files(**upload_kwargs, num_threads=num_threads, create_pr=create_pr)  # type: ignore [arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/_commit_api.py", line 390, in _upload_files
+    actions_chunk, errors_chunk, chosen_transfer = post_lfs_batch_info(
+                                                   ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/lfs.py", line 167, in post_lfs_batch_info
+    hf_raise_for_status(resp)
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 724, in hf_raise_for_status
+    raise _format(HfHubHTTPError, message, response) from e
+huggingface_hub.errors.HfHubHTTPError: (Request ID: Root=1-69351ccf-5e097a40306aa2567f88d24d;f3d7867b-ad5a-4c24-9ef9-b1581b7cadf9)
+
+403 Forbidden: Authorization error..
+Cannot access content at: https://huggingface.co/HankLL/ServeTeacup.git/info/lfs/objects/batch.
+Make sure your token has the correct permissions.

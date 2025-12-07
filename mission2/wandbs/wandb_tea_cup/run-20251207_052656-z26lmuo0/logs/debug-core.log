@@ -1,0 +1,15 @@
+{"time":"2025-12-07T05:26:56.508840646Z","level":"INFO","msg":"main: starting server","port-filename":"/tmp/tmpgdeobc9q/port-1759411.txt","pid":1759411,"log-level":0,"disable-analytics":false,"shutdown-on-parent-exit":false,"enable-dcgm-profiling":false}
+{"time":"2025-12-07T05:26:56.50922782Z","level":"INFO","msg":"server: will exit if parent process dies","ppid":1759411}
+{"time":"2025-12-07T05:26:56.50921699Z","level":"INFO","msg":"server: accepting connections","addr":{"Name":"/tmp/wandb-1759411-1759483-4228280846/socket","Net":"unix"}}
+{"time":"2025-12-07T05:26:56.694627581Z","level":"INFO","msg":"connection: ManageConnectionData: new connection created","id":"1(@)"}
+{"time":"2025-12-07T05:26:56.70038701Z","level":"INFO","msg":"handleInformInit: received","streamId":"z26lmuo0","id":"1(@)"}
+{"time":"2025-12-07T05:26:56.982125939Z","level":"INFO","msg":"handleInformInit: stream started","streamId":"z26lmuo0","id":"1(@)"}
+{"time":"2025-12-07T06:21:03.48826134Z","level":"INFO","msg":"handleInformTeardown: server teardown initiated","id":"1(@)"}
+{"time":"2025-12-07T06:21:03.488330402Z","level":"INFO","msg":"connection: closing","id":"1(@)"}
+{"time":"2025-12-07T06:21:03.488365666Z","level":"INFO","msg":"server is shutting down"}
+{"time":"2025-12-07T06:21:03.488418519Z","level":"INFO","msg":"connection: closed successfully","id":"1(@)"}
+{"time":"2025-12-07T06:21:03.488442884Z","level":"INFO","msg":"server: listener closed","addr":{"Name":"/tmp/wandb-1759411-1759483-4228280846/socket","Net":"unix"}}
+{"time":"2025-12-07T06:21:05.901763346Z","level":"ERROR","msg":"processOutgoingData: flush error","error":"write unix /tmp/wandb-1759411-1759483-4228280846/socket->@: use of closed network connection","id":"1(@)"}
+{"time":"2025-12-07T06:21:06.064075582Z","level":"INFO","msg":"handleInformTeardown: server shutdown complete","id":"1(@)"}
+{"time":"2025-12-07T06:21:06.064090883Z","level":"INFO","msg":"connection: ManageConnectionData: connection closed","id":"1(@)"}
+{"time":"2025-12-07T06:21:06.064101237Z","level":"INFO","msg":"server is closed"}
