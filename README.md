@@ -202,10 +202,6 @@ The runtime system is structured as an end-to-end pipeline:
 
 ### 4. Ease of Use  
 
-*How generalizable is your implementation across tasks or environments?*  
-*Flexibility and adaptability of the solution*  
-*Types of commands or interfaces needed to control the robot*
-
 #### 4.1 Generalizability
 
 - The core architecture:
