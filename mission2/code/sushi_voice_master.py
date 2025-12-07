@@ -159,14 +159,32 @@ Instructions:
         print(f"⚠️  Gemini API error: {e}")
         return None
 
-def main():
+def main(status_callback=None):
+    """
+    Main entry point.
+
+    status_callback が指定されている場合は、処理の段階ごとに
+    status_callback(phase, **info) を呼び出します。
+    """
+    def notify(phase, **info):
+        """UI側に状態を通知するための小さいヘルパー"""
+        if status_callback is not None:
+            try:
+                status_callback(phase, **info)
+            except Exception as e:
+                print(f"[Status callback error @ {phase}]: {e}")
+
     # Load model
+    notify("loading_model")
     print(f"Loading Whisper model: {MODEL_SIZE}...")
     model = WhisperModel(MODEL_SIZE, device=DEVICE, compute_type=COMPUTE_TYPE)
     print("Loading complete\n")
+    notify("model_loaded")
 
     # Record audio
     print(f"Recording... ({RECORD_SECONDS} seconds) [Device: {MIC_DEVICE}]")
+    notify("recording_started", seconds=RECORD_SECONDS, device=MIC_DEVICE)
+
     audio = sd.rec(
         int(RECORD_SECONDS * MIC_SAMPLE_RATE),
         samplerate=MIC_SAMPLE_RATE,
@@ -176,45 +194,53 @@ def main():
     )
     sd.wait()
     print("Recording complete\n")
+    notify("recording_finished")
 
     # Resample (48kHz → 16kHz)
     audio_16k = resample_audio(audio.flatten(), MIC_SAMPLE_RATE, WHISPER_SAMPLE_RATE)
 
     # Transcribe
     print("Transcribing...")
+    notify("transcribing")
     segments, _ = model.transcribe(audio_16k, language=LANGUAGE, vad_filter=True)
-    
+
     text = "".join([seg.text for seg in segments]).strip()
-    
+    notify("transcribed", text=text)
+
     print("\n" + "=" * 50)
     print(f"Recognition result: {text}")
     print("=" * 50)
-    
+
     # Recognize order with Gemini API
     print("\n🤖 Analyzing order with Gemini API...")
+    notify("recognizing")
     result = recognize_order_with_gemini(text)
-    
+
     if result:
         order = result.get("order")
         confidence = result.get("confidence", "unknown")
-        
+        notify("recognized", text=text, order=order, confidence=confidence)
+
         print("\n" + "=" * 50)
         if order:
             print(f"【Order】 (Confidence: {confidence})")
             print(f"  ✓ {order}")
             print("=" * 50)
-            
+
             # Execute robot serving
             print("\n🤖 Starting robot serving sequence...")
+            notify("serving", order=order)
             execute_sushi_serving([order])
+            notify("served", order=order)
         else:
             print("Order could not be recognized.")
             print(f"Menu: {', '.join(SUSHI_MENU)}")
             print("=" * 50)
-        
+
         return text, order
     else:
         print("\n⚠️  Failed to recognize order")
+        notify("failed", text=text)
         return text, None
 
 if __name__ == "__main__":
