@@ -1,0 +1,15 @@
+{"time":"2025-12-06T07:40:53.952459681Z","level":"INFO","msg":"main: starting server","port-filename":"/tmp/tmppjmgmdg3/port-3037255.txt","pid":3037255,"log-level":0,"disable-analytics":false,"shutdown-on-parent-exit":false,"enable-dcgm-profiling":false}
+{"time":"2025-12-06T07:40:53.952848571Z","level":"INFO","msg":"server: will exit if parent process dies","ppid":3037255}
+{"time":"2025-12-06T07:40:53.952838688Z","level":"INFO","msg":"server: accepting connections","addr":{"Name":"/tmp/wandb-3037255-3037326-823487595/socket","Net":"unix"}}
+{"time":"2025-12-06T07:40:54.139046167Z","level":"INFO","msg":"connection: ManageConnectionData: new connection created","id":"1(@)"}
+{"time":"2025-12-06T07:40:54.144104465Z","level":"INFO","msg":"handleInformInit: received","streamId":"81j8ph8r","id":"1(@)"}
+{"time":"2025-12-06T07:40:54.415858623Z","level":"INFO","msg":"handleInformInit: stream started","streamId":"81j8ph8r","id":"1(@)"}
+{"time":"2025-12-06T10:07:22.513920449Z","level":"INFO","msg":"handleInformTeardown: server teardown initiated","id":"1(@)"}
+{"time":"2025-12-06T10:07:22.513975353Z","level":"INFO","msg":"connection: closing","id":"1(@)"}
+{"time":"2025-12-06T10:07:22.514031595Z","level":"INFO","msg":"connection: closed successfully","id":"1(@)"}
+{"time":"2025-12-06T10:07:22.513992312Z","level":"INFO","msg":"server is shutting down"}
+{"time":"2025-12-06T10:07:22.514100256Z","level":"INFO","msg":"server: listener closed","addr":{"Name":"/tmp/wandb-3037255-3037326-823487595/socket","Net":"unix"}}
+{"time":"2025-12-06T10:07:24.819546389Z","level":"ERROR","msg":"processOutgoingData: flush error","error":"write unix /tmp/wandb-3037255-3037326-823487595/socket->@: use of closed network connection","id":"1(@)"}
+{"time":"2025-12-06T10:07:25.028914624Z","level":"INFO","msg":"handleInformTeardown: server shutdown complete","id":"1(@)"}
+{"time":"2025-12-06T10:07:25.028938218Z","level":"INFO","msg":"connection: ManageConnectionData: connection closed","id":"1(@)"}
+{"time":"2025-12-06T10:07:25.02895346Z","level":"INFO","msg":"server is closed"}

@@ -1,0 +1,15 @@
+{"time":"2025-12-07T01:35:17.723913965Z","level":"INFO","msg":"main: starting server","port-filename":"/tmp/tmpjuujw1b1/port-54960.txt","pid":54960,"log-level":0,"disable-analytics":false,"shutdown-on-parent-exit":false,"enable-dcgm-profiling":false}
+{"time":"2025-12-07T01:35:17.724740524Z","level":"INFO","msg":"server: will exit if parent process dies","ppid":54960}
+{"time":"2025-12-07T01:35:17.724730424Z","level":"INFO","msg":"server: accepting connections","addr":{"Name":"/tmp/wandb-54960-55032-1793435250/socket","Net":"unix"}}
+{"time":"2025-12-07T01:35:17.911103506Z","level":"INFO","msg":"connection: ManageConnectionData: new connection created","id":"1(@)"}
+{"time":"2025-12-07T01:35:17.916923556Z","level":"INFO","msg":"handleInformInit: received","streamId":"u4c65wgg","id":"1(@)"}
+{"time":"2025-12-07T01:35:18.212057471Z","level":"INFO","msg":"handleInformInit: stream started","streamId":"u4c65wgg","id":"1(@)"}
+{"time":"2025-12-07T01:35:18.766085397Z","level":"INFO","msg":"handleInformTeardown: server teardown initiated","id":"1(@)"}
+{"time":"2025-12-07T01:35:18.766155363Z","level":"INFO","msg":"server is shutting down"}
+{"time":"2025-12-07T01:35:18.766227251Z","level":"INFO","msg":"server: listener closed","addr":{"Name":"/tmp/wandb-54960-55032-1793435250/socket","Net":"unix"}}
+{"time":"2025-12-07T01:35:18.766148281Z","level":"INFO","msg":"connection: closing","id":"1(@)"}
+{"time":"2025-12-07T01:35:18.766272991Z","level":"INFO","msg":"connection: closed successfully","id":"1(@)"}
+{"time":"2025-12-07T01:35:18.7751621Z","level":"ERROR","msg":"processOutgoingData: flush error","error":"write unix /tmp/wandb-54960-55032-1793435250/socket->@: use of closed network connection","id":"1(@)"}
+{"time":"2025-12-07T01:35:19.48953461Z","level":"INFO","msg":"handleInformTeardown: server shutdown complete","id":"1(@)"}
+{"time":"2025-12-07T01:35:19.489551634Z","level":"INFO","msg":"connection: ManageConnectionData: connection closed","id":"1(@)"}
+{"time":"2025-12-07T01:35:19.489564229Z","level":"INFO","msg":"server is closed"}

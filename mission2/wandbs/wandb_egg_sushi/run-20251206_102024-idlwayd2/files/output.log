@@ -1,0 +1,29 @@
+INFO 2025-12-06 10:20:25 db_utils.py:102 [1m[34mLogs will be synced with wandb.[0m
+INFO 2025-12-06 10:20:25 db_utils.py:103 Track this run --> [1m[33mhttps://wandb.ai/kiyodai02-meiji/lerobot/runs/idlwayd2[0m
+INFO 2025-12-06 10:20:25 ot_train.py:183 Creating dataset
+INFO 2025-12-06 10:20:25 ot_train.py:202 Creating policy
+Loading weights from local directory
+INFO 2025-12-06 10:20:26 ot_train.py:247 Creating optimizer and scheduler
+INFO 2025-12-06 10:20:27 ot_train.py:259 [1m[33mOutput dir:[0m outputs/train/serve_egg_sushi
+INFO 2025-12-06 10:20:27 ot_train.py:262 cfg.steps=5000 (5K)
+INFO 2025-12-06 10:20:27 ot_train.py:263 dataset.num_frames=37236 (37K)
+INFO 2025-12-06 10:20:27 ot_train.py:264 dataset.num_episodes=40
+INFO 2025-12-06 10:20:27 ot_train.py:267 Effective batch size: 64 x 1 = 64
+INFO 2025-12-06 10:20:27 ot_train.py:268 num_learnable_params=51597190 (52M)
+INFO 2025-12-06 10:20:27 ot_train.py:269 num_total_params=51597190 (52M)
+INFO 2025-12-06 10:20:27 ot_train.py:324 Start offline training on a fixed dataset
+INFO 2025-12-06 10:20:27 ot_train.py:430 End of training
+Processing Files (1 / 1)      : 100%|██████████████|  207MB /  207MB,  191MB/s  
+New Data Upload               : |                  |  0.00B /  0.00B,  0.00B/s  
+  ...ggSushi/model.safetensors: 100%|██████████████|  207MB /  207MB            
+INFO 2025-12-06 10:20:29 etrained.py:237 Model pushed to https://huggingface.co/HankLL/ServeEggSushi
+Processing Files (1 / 1)      : 100%|██████████████| 7.54kB / 7.54kB,  0.00B/s  
+New Data Upload               : |                  |  0.00B /  0.00B,  0.00B/s  
+  ...zer_processor.safetensors: 100%|██████████████| 7.54kB / 7.54kB
+No files have been modified since last commit. Skipping to prevent empty commit.
+WARNING 2025-12-06 10:20:29 /hf_api.py:4298 No files have been modified since last commit. Skipping to prevent empty commit.
+Processing Files (1 / 1)      : 100%|██████████████| 7.54kB / 7.54kB,  0.00B/s  
+New Data Upload               : |                  |  0.00B /  0.00B,  0.00B/s  
+  ...zer_processor.safetensors: 100%|██████████████| 7.54kB / 7.54kB
+No files have been modified since last commit. Skipping to prevent empty commit.
+WARNING 2025-12-06 10:20:29 /hf_api.py:4298 No files have been modified since last commit. Skipping to prevent empty commit.

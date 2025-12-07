@@ -1,0 +1,56 @@
+INFO 2025-12-06 16:39:19 db_utils.py:102 [1m[34mLogs will be synced with wandb.[0m
+INFO 2025-12-06 16:39:19 db_utils.py:103 Track this run --> [1m[33mhttps://wandb.ai/kiyodai02-meiji/lerobot/runs/0dtgxr32[0m
+INFO 2025-12-06 16:39:19 ot_train.py:183 Creating dataset
+INFO 2025-12-06 16:39:19 ot_train.py:202 Creating policy
+Loading weights from local directory
+INFO 2025-12-06 16:39:21 ot_train.py:247 Creating optimizer and scheduler
+INFO 2025-12-06 16:39:22 ot_train.py:259 [1m[33mOutput dir:[0m outputs/train/serve_cucumber_roll
+INFO 2025-12-06 16:39:22 ot_train.py:262 cfg.steps=200000 (200K)
+INFO 2025-12-06 16:39:22 ot_train.py:263 dataset.num_frames=37245 (37K)
+INFO 2025-12-06 16:39:22 ot_train.py:264 dataset.num_episodes=40
+INFO 2025-12-06 16:39:22 ot_train.py:267 Effective batch size: 64 x 1 = 64
+INFO 2025-12-06 16:39:22 ot_train.py:268 num_learnable_params=51597190 (52M)
+INFO 2025-12-06 16:39:22 ot_train.py:269 num_total_params=51597190 (52M)
+INFO 2025-12-06 16:39:22 ot_train.py:324 Start offline training on a fixed dataset
+INFO 2025-12-06 16:41:17 ot_train.py:351 step:10K smpl:653K ep:701 epch:17.53 loss:0.090 grdn:7.597 lr:1.0e-05 updt_s:0.530 data_s:0.046
+INFO 2025-12-06 16:42:18 ot_train.py:351 step:10K smpl:666K ep:715 epch:17.87 loss:0.088 grdn:7.007 lr:1.0e-05 updt_s:0.267 data_s:0.037
+INFO 2025-12-06 16:44:04 ot_train.py:351 step:11K smpl:678K ep:729 epch:18.21 loss:0.087 grdn:6.599 lr:1.0e-05 updt_s:0.465 data_s:0.064
+INFO 2025-12-06 16:45:07 ot_train.py:351 step:11K smpl:691K ep:742 epch:18.56 loss:0.086 grdn:6.392 lr:1.0e-05 updt_s:0.268 data_s:0.049
+INFO 2025-12-06 16:46:10 ot_train.py:351 step:11K smpl:704K ep:756 epch:18.90 loss:0.085 grdn:6.651 lr:1.0e-05 updt_s:0.268 data_s:0.045
+INFO 2025-12-06 16:46:10 ot_train.py:361 Checkpoint policy after step 11000
+Traceback (most recent call last):
+  File "/opt/venv/bin/lerobot-train", line 7, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/workspace/lerobot/src/lerobot/scripts/lerobot_train.py", line 444, in main
+    train()
+  File "/workspace/lerobot/src/lerobot/configs/parser.py", line 233, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/lerobot/src/lerobot/scripts/lerobot_train.py", line 332, in train
+    train_tracker, output_dict = update_policy(
+                                 ^^^^^^^^^^^^^^
+  File "/workspace/lerobot/src/lerobot/scripts/lerobot_train.py", line 107, in update_policy
+    optimizer.step()
+  File "/opt/venv/lib/python3.12/site-packages/accelerate/optimizer.py", line 179, in step
+    self.optimizer.step(closure)
+  File "/opt/venv/lib/python3.12/site-packages/torch/optim/optimizer.py", line 485, in wrapper
+    out = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/torch/optim/optimizer.py", line 79, in _use_grad
+    ret = func(self, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/torch/optim/adam.py", line 246, in step
+    adam(
+  File "/opt/venv/lib/python3.12/site-packages/torch/optim/optimizer.py", line 147, in maybe_fallback
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/torch/optim/adam.py", line 933, in adam
+    func(
+  File "/opt/venv/lib/python3.12/site-packages/torch/optim/adam.py", line 739, in _multi_tensor_adam
+    1 - beta1 ** _get_value(step) for step in device_state_steps
+                 ^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/torch/optim/optimizer.py", line 94, in _get_value
+    return x.item() if isinstance(x, torch.Tensor) else x
+           ^^^^^^^^
+KeyboardInterrupt

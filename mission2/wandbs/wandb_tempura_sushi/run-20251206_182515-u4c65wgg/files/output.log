@@ -1,0 +1,53 @@
+INFO 2025-12-06 18:25:16 db_utils.py:102 [1m[34mLogs will be synced with wandb.[0m
+INFO 2025-12-06 18:25:16 db_utils.py:103 Track this run --> [1m[33mhttps://wandb.ai/kiyodai02-meiji/lerobot/runs/u4c65wgg[0m
+INFO 2025-12-06 18:25:16 ot_train.py:183 Creating dataset
+INFO 2025-12-06 18:25:17 ot_train.py:202 Creating policy
+Loading weights from local directory
+INFO 2025-12-06 18:25:18 ot_train.py:247 Creating optimizer and scheduler
+INFO 2025-12-06 18:25:19 ot_train.py:259 [1m[33mOutput dir:[0m outputs/train/serve_tempura_sushi
+INFO 2025-12-06 18:25:19 ot_train.py:262 cfg.steps=15000 (15K)
+INFO 2025-12-06 18:25:19 ot_train.py:263 dataset.num_frames=39108 (39K)
+INFO 2025-12-06 18:25:19 ot_train.py:264 dataset.num_episodes=42
+INFO 2025-12-06 18:25:19 ot_train.py:267 Effective batch size: 64 x 1 = 64
+INFO 2025-12-06 18:25:19 ot_train.py:268 num_learnable_params=51597190 (52M)
+INFO 2025-12-06 18:25:19 ot_train.py:269 num_total_params=51597190 (52M)
+INFO 2025-12-06 18:25:19 ot_train.py:324 Start offline training on a fixed dataset
+INFO 2025-12-06 18:27:11 ot_train.py:351 step:11K smpl:717K ep:770 epch:18.33 loss:0.085 grdn:6.906 lr:1.0e-05 updt_s:0.531 data_s:0.027
+INFO 2025-12-06 18:28:09 ot_train.py:351 step:11K smpl:730K ep:784 epch:18.66 loss:0.084 grdn:6.922 lr:1.0e-05 updt_s:0.267 data_s:0.024
+INFO 2025-12-06 18:29:07 ot_train.py:351 step:12K smpl:742K ep:797 epch:18.98 loss:0.084 grdn:6.988 lr:1.0e-05 updt_s:0.270 data_s:0.017
+INFO 2025-12-06 18:30:13 ot_train.py:351 step:12K smpl:755K ep:811 epch:19.31 loss:0.082 grdn:6.815 lr:1.0e-05 updt_s:0.285 data_s:0.046
+INFO 2025-12-06 18:31:12 ot_train.py:351 step:12K smpl:768K ep:825 epch:19.64 loss:0.081 grdn:6.451 lr:1.0e-05 updt_s:0.267 data_s:0.028
+INFO 2025-12-06 18:31:12 ot_train.py:361 Checkpoint policy after step 12000
+INFO 2025-12-06 18:32:13 ot_train.py:351 step:12K smpl:781K ep:839 epch:19.97 loss:0.082 grdn:6.789 lr:1.0e-05 updt_s:0.268 data_s:0.027
+INFO 2025-12-06 18:33:16 ot_train.py:351 step:12K smpl:794K ep:852 epch:20.29 loss:0.080 grdn:6.558 lr:1.0e-05 updt_s:0.267 data_s:0.046
+INFO 2025-12-06 18:34:12 ot_train.py:351 step:13K smpl:806K ep:866 epch:20.62 loss:0.079 grdn:6.391 lr:1.0e-05 updt_s:0.268 data_s:0.012
+INFO 2025-12-06 18:35:08 ot_train.py:351 step:13K smpl:819K ep:880 epch:20.95 loss:0.079 grdn:6.374 lr:1.0e-05 updt_s:0.270 data_s:0.010
+INFO 2025-12-06 18:36:11 ot_train.py:351 step:13K smpl:832K ep:894 epch:21.27 loss:0.079 grdn:6.165 lr:1.0e-05 updt_s:0.267 data_s:0.050
+INFO 2025-12-06 18:36:11 ot_train.py:361 Checkpoint policy after step 13000
+INFO 2025-12-06 18:37:11 ot_train.py:351 step:13K smpl:845K ep:907 epch:21.60 loss:0.078 grdn:7.008 lr:1.0e-05 updt_s:0.268 data_s:0.018
+INFO 2025-12-06 18:38:09 ot_train.py:351 step:13K smpl:858K ep:921 epch:21.93 loss:0.077 grdn:5.797 lr:1.0e-05 updt_s:0.268 data_s:0.023
+INFO 2025-12-06 18:39:14 ot_train.py:351 step:14K smpl:870K ep:935 epch:22.26 loss:0.076 grdn:6.046 lr:1.0e-05 updt_s:0.267 data_s:0.054
+INFO 2025-12-06 18:40:12 ot_train.py:351 step:14K smpl:883K ep:949 epch:22.58 loss:0.077 grdn:6.608 lr:1.0e-05 updt_s:0.267 data_s:0.025
+INFO 2025-12-06 18:41:11 ot_train.py:351 step:14K smpl:896K ep:962 epch:22.91 loss:0.076 grdn:6.554 lr:1.0e-05 updt_s:0.266 data_s:0.026
+INFO 2025-12-06 18:41:11 ot_train.py:361 Checkpoint policy after step 14000
+INFO 2025-12-06 18:42:15 ot_train.py:351 step:14K smpl:909K ep:976 epch:23.24 loss:0.074 grdn:5.953 lr:1.0e-05 updt_s:0.267 data_s:0.044
+INFO 2025-12-06 18:43:10 ot_train.py:351 step:14K smpl:922K ep:990 epch:23.57 loss:0.074 grdn:6.096 lr:1.0e-05 updt_s:0.267 data_s:0.011
+INFO 2025-12-06 18:44:06 ot_train.py:351 step:15K smpl:934K ep:1K epch:23.89 loss:0.073 grdn:5.851 lr:1.0e-05 updt_s:0.267 data_s:0.010
+INFO 2025-12-06 18:45:08 ot_train.py:351 step:15K smpl:947K ep:1K epch:24.22 loss:0.073 grdn:5.942 lr:1.0e-05 updt_s:0.265 data_s:0.045
+INFO 2025-12-06 18:46:04 ot_train.py:351 step:15K smpl:960K ep:1K epch:24.55 loss:0.072 grdn:5.705 lr:1.0e-05 updt_s:0.267 data_s:0.013
+INFO 2025-12-06 18:46:04 ot_train.py:361 Checkpoint policy after step 15000
+INFO 2025-12-06 18:46:06 ot_train.py:430 End of training
+Processing Files (1 / 1)      : 100%|██████████████|  207MB /  207MB, 64.7MB/s  
+New Data Upload               : 100%|██████████████|  206MB /  206MB, 64.4MB/s  
+  ...raSushi/model.safetensors: 100%|██████████████|  207MB /  207MB            
+INFO 2025-12-06 18:46:11 etrained.py:237 Model pushed to https://huggingface.co/HankLL/ServeTempuraSushi
+Processing Files (1 / 1)      : 100%|██████████████| 7.54kB / 7.54kB,  0.00B/s  
+New Data Upload               : |                  |  0.00B /  0.00B,  0.00B/s  
+  ...zer_processor.safetensors: 100%|██████████████| 7.54kB / 7.54kB
+No files have been modified since last commit. Skipping to prevent empty commit.
+WARNING 2025-12-06 18:46:11 /hf_api.py:4298 No files have been modified since last commit. Skipping to prevent empty commit.
+Processing Files (1 / 1)      : 100%|██████████████| 7.54kB / 7.54kB,  0.00B/s  
+New Data Upload               : |                  |  0.00B /  0.00B,  0.00B/s  
+  ...zer_processor.safetensors: 100%|██████████████| 7.54kB / 7.54kB
+No files have been modified since last commit. Skipping to prevent empty commit.
+WARNING 2025-12-06 18:46:12 /hf_api.py:4298 No files have been modified since last commit. Skipping to prevent empty commit.

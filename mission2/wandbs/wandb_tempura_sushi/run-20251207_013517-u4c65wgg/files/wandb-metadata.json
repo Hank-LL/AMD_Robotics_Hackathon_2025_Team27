@@ -1,0 +1,25 @@
+{
+  "os":  "Linux-6.1.0-39-amd64-x86_64-with-glibc2.39",
+  "python":  "CPython 3.12.3",
+  "startedAt":  "2025-12-07T01:35:17.704634Z",
+  "args":  [
+    "--config_path=outputs/train/serve_tempura_sushi/checkpoints/last/pretrained_model/train_config.json",
+    "--resume=true",
+    "--dataset.repo_id=HankLL/ServeTemuraSushi",
+    "--batch_size=64",
+    "--steps=30000",
+    "--output_dir=outputs/train/serve_tempura_sushi",
+    "--job_name=act_so101_serve_tempura_sushi",
+    "--save_freq=1000",
+    "--policy.device=cuda",
+    "--policy.type=act",
+    "--policy.push_to_hub=true",
+    "--policy.repo_id=HankLL/ServeTempuraSushi",
+    "--wandb.enable=true"
+  ],
+  "program":  "/opt/venv/bin/lerobot-train",
+  "root":  "outputs/train/serve_tempura_sushi",
+  "host":  "robotics-jupyter-launcher-3445",
+  "executable":  "/opt/venv/bin/python",
+  "writerId":  "kr78ebcyopi1icxb0agy6jg77ha0g6hf"
+}

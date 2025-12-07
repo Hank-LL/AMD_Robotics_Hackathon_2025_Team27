@@ -1,0 +1,50 @@
+INFO 2025-12-06 18:32:14 db_utils.py:102 [1m[34mLogs will be synced with wandb.[0m
+INFO 2025-12-06 18:32:14 db_utils.py:103 Track this run --> [1m[33mhttps://wandb.ai/kiyodai02-meiji/lerobot/runs/81j8ph8r[0m
+INFO 2025-12-06 18:32:14 ot_train.py:183 Creating dataset
+INFO 2025-12-06 18:32:14 ot_train.py:202 Creating policy
+Loading weights from local directory
+INFO 2025-12-06 18:32:16 ot_train.py:247 Creating optimizer and scheduler
+INFO 2025-12-06 18:32:17 ot_train.py:259 [1m[33mOutput dir:[0m outputs/train/serve_tuna_sushi
+INFO 2025-12-06 18:32:17 ot_train.py:262 cfg.steps=200000 (200K)
+INFO 2025-12-06 18:32:17 ot_train.py:263 dataset.num_frames=40032 (40K)
+INFO 2025-12-06 18:32:17 ot_train.py:264 dataset.num_episodes=43
+INFO 2025-12-06 18:32:17 ot_train.py:267 Effective batch size: 64 x 1 = 64
+INFO 2025-12-06 18:32:17 ot_train.py:268 num_learnable_params=51597190 (52M)
+INFO 2025-12-06 18:32:17 ot_train.py:269 num_total_params=51597190 (52M)
+INFO 2025-12-06 18:32:17 ot_train.py:324 Start offline training on a fixed dataset
+Traceback (most recent call last):
+  File "/opt/venv/bin/lerobot-train", line 7, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/workspace/lerobot/src/lerobot/scripts/lerobot_train.py", line 444, in main
+    train()
+  File "/workspace/lerobot/src/lerobot/configs/parser.py", line 233, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/lerobot/src/lerobot/scripts/lerobot_train.py", line 328, in train
+    batch = next(dl_iter)
+            ^^^^^^^^^^^^^
+  File "/workspace/lerobot/src/lerobot/datasets/utils.py", line 898, in cycle
+    yield next(iterator)
+          ^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/accelerate/data_loader.py", line 579, in __iter__
+    next_batch = next(dataloader_iter)
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 733, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1491, in _next_data
+    idx, data = self._get_data()
+                ^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1443, in _get_data
+    success, data = self._try_get_data()
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1284, in _try_get_data
+    data = self._data_queue.get(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/queue.py", line 180, in get
+    self.not_empty.wait(remaining)
+  File "/usr/lib/python3.12/threading.py", line 359, in wait
+    gotit = waiter.acquire(True, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

@@ -1,0 +1,25 @@
+{
+  "os":  "Linux-6.1.0-39-amd64-x86_64-with-glibc2.39",
+  "python":  "CPython 3.12.3",
+  "startedAt":  "2025-12-06T17:33:49.916747Z",
+  "args":  [
+    "--config_path=outputs/train/serve_egg_sushi/checkpoints/last/pretrained_model/train_config.json",
+    "--resume=true",
+    "--dataset.repo_id=HankLL/ServeEggrRoll",
+    "--batch_size=64",
+    "--steps=20000",
+    "--output_dir=outputs/train/serve_egg_sushi",
+    "--job_name=act_so101_serve_egg_sushi",
+    "--save_freq=1000",
+    "--policy.device=cuda",
+    "--policy.type=act",
+    "--policy.push_to_hub=true",
+    "--policy.repo_id=HankLL/ServeEggSushi",
+    "--wandb.enable=true"
+  ],
+  "program":  "/opt/venv/bin/lerobot-train",
+  "root":  "outputs/train/serve_egg_sushi",
+  "host":  "robotics-jupyter-launcher-3445",
+  "executable":  "/opt/venv/bin/python",
+  "writerId":  "ljn2hwwtspdviw6u1k91zk0i75zd0fvu"
+}

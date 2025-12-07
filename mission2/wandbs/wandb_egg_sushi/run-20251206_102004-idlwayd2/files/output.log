@@ -1,0 +1,52 @@
+INFO 2025-12-06 10:20:04 db_utils.py:102 [1m[34mLogs will be synced with wandb.[0m
+INFO 2025-12-06 10:20:04 db_utils.py:103 Track this run --> [1m[33mhttps://wandb.ai/kiyodai02-meiji/lerobot/runs/idlwayd2[0m
+INFO 2025-12-06 10:20:04 ot_train.py:183 Creating dataset
+INFO 2025-12-06 10:20:05 ot_train.py:202 Creating policy
+Loading weights from local directory
+INFO 2025-12-06 10:20:06 ot_train.py:247 Creating optimizer and scheduler
+INFO 2025-12-06 10:20:07 ot_train.py:259 [1m[33mOutput dir:[0m outputs/train/serve_egg_sushi
+INFO 2025-12-06 10:20:07 ot_train.py:262 cfg.steps=5000 (5K)
+INFO 2025-12-06 10:20:07 ot_train.py:263 dataset.num_frames=37236 (37K)
+INFO 2025-12-06 10:20:07 ot_train.py:264 dataset.num_episodes=40
+INFO 2025-12-06 10:20:07 ot_train.py:267 Effective batch size: 64 x 1 = 64
+INFO 2025-12-06 10:20:07 ot_train.py:268 num_learnable_params=51597190 (52M)
+INFO 2025-12-06 10:20:07 ot_train.py:269 num_total_params=51597190 (52M)
+INFO 2025-12-06 10:20:07 ot_train.py:324 Start offline training on a fixed dataset
+INFO 2025-12-06 10:20:07 ot_train.py:430 End of training
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 407, in hf_raise_for_status
+    response.raise_for_status()
+  File "/opt/venv/lib/python3.12/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://huggingface.co/api/repos/create
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/venv/bin/lerobot-train", line 7, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/workspace/lerobot/src/lerobot/scripts/lerobot_train.py", line 444, in main
+    train()
+  File "/workspace/lerobot/src/lerobot/configs/parser.py", line 233, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/lerobot/src/lerobot/scripts/lerobot_train.py", line 434, in train
+    unwrapped_policy.push_model_to_hub(cfg)
+  File "/workspace/lerobot/src/lerobot/policies/pretrained.py", line 211, in push_model_to_hub
+    repo_id = api.create_repo(
+              ^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/hf_api.py", line 3779, in create_repo
+    raise err
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/hf_api.py", line 3766, in create_repo
+    hf_raise_for_status(r)
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 471, in hf_raise_for_status
+    raise _format(HfHubHTTPError, message, response) from e
+huggingface_hub.errors.HfHubHTTPError: (Request ID: Root=1-69340357-2244d37a6b7a13c5710fad3e;475174c1-941e-445d-af75-55bb3961d698)
+
+403 Forbidden: You don't have the rights to create a model under the namespace "HaknLL".
+Cannot access content at: https://huggingface.co/api/repos/create.
+Make sure your token has the correct permissions.

@@ -1,0 +1,87 @@
+INFO 2025-12-06 18:16:49 db_utils.py:102 [1m[34mLogs will be synced with wandb.[0m
+INFO 2025-12-06 18:16:49 db_utils.py:103 Track this run --> [1m[33mhttps://wandb.ai/kiyodai02-meiji/lerobot/runs/u4c65wgg[0m
+INFO 2025-12-06 18:16:49 ot_train.py:183 Creating dataset
+INFO 2025-12-06 18:16:50 ot_train.py:202 Creating policy
+Loading weights from local directory
+INFO 2025-12-06 18:16:51 ot_train.py:247 Creating optimizer and scheduler
+INFO 2025-12-06 18:16:52 ot_train.py:259 [1m[33mOutput dir:[0m outputs/train/serve_tempura_sushi
+INFO 2025-12-06 18:16:52 ot_train.py:262 cfg.steps=15000 (15K)
+INFO 2025-12-06 18:16:52 ot_train.py:263 dataset.num_frames=39108 (39K)
+INFO 2025-12-06 18:16:52 ot_train.py:264 dataset.num_episodes=42
+INFO 2025-12-06 18:16:52 ot_train.py:267 Effective batch size: 64 x 1 = 64
+INFO 2025-12-06 18:16:52 ot_train.py:268 num_learnable_params=51597190 (52M)
+INFO 2025-12-06 18:16:52 ot_train.py:269 num_total_params=51597190 (52M)
+INFO 2025-12-06 18:16:52 ot_train.py:324 Start offline training on a fixed dataset
+INFO 2025-12-06 18:18:45 ot_train.py:351 step:10K smpl:653K ep:701 epch:16.69 loss:0.091 grdn:7.732 lr:1.0e-05 updt_s:0.532 data_s:0.034
+INFO 2025-12-06 18:19:43 ot_train.py:351 step:10K smpl:666K ep:715 epch:17.02 loss:0.089 grdn:7.296 lr:1.0e-05 updt_s:0.268 data_s:0.022
+INFO 2025-12-06 18:20:42 ot_train.py:351 step:11K smpl:678K ep:729 epch:17.35 loss:0.087 grdn:6.541 lr:1.0e-05 updt_s:0.268 data_s:0.022
+INFO 2025-12-06 18:21:46 ot_train.py:351 step:11K smpl:691K ep:742 epch:17.67 loss:0.087 grdn:7.348 lr:1.0e-05 updt_s:0.284 data_s:0.039
+INFO 2025-12-06 18:22:44 ot_train.py:351 step:11K smpl:704K ep:756 epch:18.00 loss:0.086 grdn:6.399 lr:1.0e-05 updt_s:0.268 data_s:0.020
+INFO 2025-12-06 18:22:44 ot_train.py:361 Checkpoint policy after step 11000
+INFO 2025-12-06 18:23:44 ot_train.py:351 step:11K smpl:717K ep:770 epch:18.33 loss:0.086 grdn:7.051 lr:1.0e-05 updt_s:0.267 data_s:0.020
+INFO 2025-12-06 18:24:45 ot_train.py:351 step:11K smpl:730K ep:784 epch:18.66 loss:0.084 grdn:6.680 lr:1.0e-05 updt_s:0.266 data_s:0.040
+Exception in thread Thread-4 (_pin_memory_loop):
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/threading.py", line 1073, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.12/threading.py", line 1010, in run
+    self._target(*self._args, **self._kwargs)
+  File "/opt/venv/lib/python3.12/site-packages/torch/utils/data/_utils/pin_memory.py", line 61, in _pin_memory_loop
+    do_one_step()
+  File "/opt/venv/lib/python3.12/site-packages/torch/utils/data/_utils/pin_memory.py", line 37, in do_one_step
+    r = in_queue.get(timeout=MP_STATUS_CHECK_INTERVAL)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/queues.py", line 122, in get
+    return _ForkingPickler.loads(res)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/torch/multiprocessing/reductions.py", line 541, in rebuild_storage_fd
+    fd = df.detach()
+         ^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/resource_sharer.py", line 57, in detach
+    with _resource_sharer.get_connection(self._id) as conn:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/resource_sharer.py", line 86, in get_connection
+    c = Client(address, authkey=process.current_process().authkey)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 519, in Client
+    c = SocketClient(address)
+        ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 647, in SocketClient
+    s.connect(address)
+FileNotFoundError: [Errno 2] No such file or directory
+Traceback (most recent call last):
+  File "/opt/venv/bin/lerobot-train", line 7, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/workspace/lerobot/src/lerobot/scripts/lerobot_train.py", line 444, in main
+    train()
+  File "/workspace/lerobot/src/lerobot/configs/parser.py", line 233, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/lerobot/src/lerobot/scripts/lerobot_train.py", line 332, in train
+    train_tracker, output_dict = update_policy(
+                                 ^^^^^^^^^^^^^^
+  File "/workspace/lerobot/src/lerobot/scripts/lerobot_train.py", line 107, in update_policy
+    optimizer.step()
+  File "/opt/venv/lib/python3.12/site-packages/accelerate/optimizer.py", line 179, in step
+    self.optimizer.step(closure)
+  File "/opt/venv/lib/python3.12/site-packages/torch/optim/optimizer.py", line 485, in wrapper
+    out = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/torch/optim/optimizer.py", line 79, in _use_grad
+    ret = func(self, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/torch/optim/adam.py", line 246, in step
+    adam(
+  File "/opt/venv/lib/python3.12/site-packages/torch/optim/optimizer.py", line 147, in maybe_fallback
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/torch/optim/adam.py", line 933, in adam
+    func(
+  File "/opt/venv/lib/python3.12/site-packages/torch/optim/adam.py", line 739, in _multi_tensor_adam
+    1 - beta1 ** _get_value(step) for step in device_state_steps
+                 ^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/torch/optim/optimizer.py", line 94, in _get_value
+    return x.item() if isinstance(x, torch.Tensor) else x
+           ^^^^^^^^
+KeyboardInterrupt

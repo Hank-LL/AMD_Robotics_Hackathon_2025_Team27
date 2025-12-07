@@ -1,0 +1,37 @@
+INFO 2025-12-07 03:20:29 db_utils.py:102 [1m[34mLogs will be synced with wandb.[0m
+INFO 2025-12-07 03:20:29 db_utils.py:103 Track this run --> [1m[33mhttps://wandb.ai/kiyodai02-meiji/lerobot/runs/idlwayd2[0m
+INFO 2025-12-07 03:20:29 ot_train.py:183 Creating dataset
+INFO 2025-12-07 03:20:29 _client.py:1025 HTTP Request: GET https://huggingface.co/api/datasets/HankLL/ServeEggSushi/refs "HTTP/1.1 200 OK"
+Traceback (most recent call last):
+  File "/workspace/lerobot/src/lerobot/datasets/lerobot_dataset.py", line 708, in __init__
+    raise FileNotFoundError("Cached dataset doesn't contain all requested episodes")
+FileNotFoundError: Cached dataset doesn't contain all requested episodes
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/venv/bin/lerobot-train", line 7, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/workspace/lerobot/src/lerobot/scripts/lerobot_train.py", line 444, in main
+    train()
+  File "/workspace/lerobot/src/lerobot/configs/parser.py", line 233, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/lerobot/src/lerobot/scripts/lerobot_train.py", line 184, in train
+    dataset = make_dataset(cfg)
+              ^^^^^^^^^^^^^^^^^
+  File "/workspace/lerobot/src/lerobot/datasets/factory.py", line 93, in make_dataset
+    dataset = LeRobotDataset(
+              ^^^^^^^^^^^^^^^
+  File "/workspace/lerobot/src/lerobot/datasets/lerobot_dataset.py", line 712, in __init__
+    self.download(download_videos)
+  File "/workspace/lerobot/src/lerobot/datasets/lerobot_dataset.py", line 813, in download
+    files = self.get_episodes_file_paths()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/lerobot/src/lerobot/datasets/lerobot_dataset.py", line 818, in get_episodes_file_paths
+    fpaths = [str(self.meta.get_data_file_path(ep_idx)) for ep_idx in episodes]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/lerobot/src/lerobot/datasets/lerobot_dataset.py", line 193, in get_data_file_path
+    raise IndexError(
+IndexError: Episode index 40 out of range. Episodes: 40

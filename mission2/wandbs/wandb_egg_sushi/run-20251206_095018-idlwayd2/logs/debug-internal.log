@@ -1,0 +1,11 @@
+{"time":"2025-12-06T09:50:18.278197429Z","level":"INFO","msg":"stream: starting","core version":"0.21.4"}
+{"time":"2025-12-06T09:50:18.545154832Z","level":"INFO","msg":"stream: created new stream","id":"idlwayd2"}
+{"time":"2025-12-06T09:50:18.545178468Z","level":"INFO","msg":"stream: started","id":"idlwayd2"}
+{"time":"2025-12-06T09:50:18.545218884Z","level":"INFO","msg":"writer: started","stream_id":"idlwayd2"}
+{"time":"2025-12-06T09:50:18.54534261Z","level":"INFO","msg":"sender: started","stream_id":"idlwayd2"}
+{"time":"2025-12-06T09:50:18.54539109Z","level":"INFO","msg":"handler: started","stream_id":"idlwayd2"}
+{"time":"2025-12-06T09:50:21.423013932Z","level":"INFO","msg":"stream: closing","id":"idlwayd2"}
+{"time":"2025-12-06T09:50:21.871231931Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-12-06T09:50:22.027600245Z","level":"INFO","msg":"handler: closed","stream_id":"idlwayd2"}
+{"time":"2025-12-06T09:50:22.027652339Z","level":"INFO","msg":"sender: closed","stream_id":"idlwayd2"}
+{"time":"2025-12-06T09:50:22.027657515Z","level":"INFO","msg":"stream: closed","id":"idlwayd2"}

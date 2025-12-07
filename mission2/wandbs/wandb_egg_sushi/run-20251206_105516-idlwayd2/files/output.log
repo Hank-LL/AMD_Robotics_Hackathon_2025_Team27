@@ -1,0 +1,112 @@
+INFO 2025-12-06 10:55:17 db_utils.py:102 [1m[34mLogs will be synced with wandb.[0m
+INFO 2025-12-06 10:55:17 db_utils.py:103 Track this run --> [1m[33mhttps://wandb.ai/kiyodai02-meiji/lerobot/runs/idlwayd2[0m
+INFO 2025-12-06 10:55:17 ot_train.py:183 Creating dataset
+INFO 2025-12-06 10:55:18 ot_train.py:202 Creating policy
+Loading weights from local directory
+INFO 2025-12-06 10:55:19 ot_train.py:247 Creating optimizer and scheduler
+INFO 2025-12-06 10:55:20 ot_train.py:259 [1m[33mOutput dir:[0m outputs/train/serve_egg_sushi
+INFO 2025-12-06 10:55:20 ot_train.py:262 cfg.steps=15000 (15K)
+INFO 2025-12-06 10:55:20 ot_train.py:263 dataset.num_frames=37236 (37K)
+INFO 2025-12-06 10:55:20 ot_train.py:264 dataset.num_episodes=40
+INFO 2025-12-06 10:55:20 ot_train.py:267 Effective batch size: 64 x 1 = 64
+INFO 2025-12-06 10:55:20 ot_train.py:268 num_learnable_params=51597190 (52M)
+INFO 2025-12-06 10:55:20 ot_train.py:269 num_total_params=51597190 (52M)
+INFO 2025-12-06 10:55:20 ot_train.py:324 Start offline training on a fixed dataset
+INFO 2025-12-06 10:57:06 ot_train.py:351 step:10K smpl:653K ep:701 epch:17.53 loss:0.097 grdn:6.665 lr:1.0e-05 updt_s:0.512 data_s:0.019
+INFO 2025-12-06 10:58:00 ot_train.py:351 step:10K smpl:666K ep:715 epch:17.88 loss:0.097 grdn:6.898 lr:1.0e-05 updt_s:0.262 data_s:0.009
+INFO 2025-12-06 10:59:32 ot_train.py:351 step:11K smpl:678K ep:729 epch:18.22 loss:0.096 grdn:6.800 lr:1.0e-05 updt_s:0.429 data_s:0.030
+INFO 2025-12-06 11:00:26 ot_train.py:351 step:11K smpl:691K ep:743 epch:18.56 loss:0.094 grdn:6.801 lr:1.0e-05 updt_s:0.262 data_s:0.009
+INFO 2025-12-06 11:01:21 ot_train.py:351 step:11K smpl:704K ep:756 epch:18.91 loss:0.093 grdn:6.523 lr:1.0e-05 updt_s:0.262 data_s:0.009
+INFO 2025-12-06 11:01:21 ot_train.py:361 Checkpoint policy after step 11000
+INFO 2025-12-06 11:02:22 ot_train.py:351 step:11K smpl:717K ep:770 epch:19.25 loss:0.093 grdn:6.496 lr:1.0e-05 updt_s:0.262 data_s:0.036
+INFO 2025-12-06 11:03:16 ot_train.py:351 step:11K smpl:730K ep:784 epch:19.59 loss:0.092 grdn:7.016 lr:1.0e-05 updt_s:0.262 data_s:0.009
+INFO 2025-12-06 11:04:11 ot_train.py:351 step:12K smpl:742K ep:798 epch:19.94 loss:0.091 grdn:6.441 lr:1.0e-05 updt_s:0.262 data_s:0.009
+INFO 2025-12-06 11:05:10 ot_train.py:351 step:12K smpl:755K ep:811 epch:20.28 loss:0.090 grdn:6.240 lr:1.0e-05 updt_s:0.263 data_s:0.031
+INFO 2025-12-06 11:06:04 ot_train.py:351 step:12K smpl:768K ep:825 epch:20.63 loss:0.088 grdn:6.330 lr:1.0e-05 updt_s:0.263 data_s:0.009
+INFO 2025-12-06 11:06:04 ot_train.py:361 Checkpoint policy after step 12000
+INFO 2025-12-06 11:07:00 ot_train.py:351 step:12K smpl:781K ep:839 epch:20.97 loss:0.088 grdn:6.520 lr:1.0e-05 updt_s:0.262 data_s:0.009
+INFO 2025-12-06 11:08:00 ot_train.py:351 step:12K smpl:794K ep:853 epch:21.31 loss:0.087 grdn:6.150 lr:1.0e-05 updt_s:0.262 data_s:0.037
+INFO 2025-12-06 11:08:54 ot_train.py:351 step:13K smpl:806K ep:866 epch:21.66 loss:0.086 grdn:6.469 lr:1.0e-05 updt_s:0.262 data_s:0.009
+INFO 2025-12-06 11:09:48 ot_train.py:351 step:13K smpl:819K ep:880 epch:22.00 loss:0.086 grdn:6.416 lr:1.0e-05 updt_s:0.262 data_s:0.009
+INFO 2025-12-06 11:10:48 ot_train.py:351 step:13K smpl:832K ep:894 epch:22.34 loss:0.085 grdn:6.104 lr:1.0e-05 updt_s:0.263 data_s:0.036
+INFO 2025-12-06 11:10:48 ot_train.py:361 Checkpoint policy after step 13000
+INFO 2025-12-06 11:11:44 ot_train.py:351 step:13K smpl:845K ep:908 epch:22.69 loss:0.084 grdn:6.112 lr:1.0e-05 updt_s:0.262 data_s:0.009
+INFO 2025-12-06 11:12:38 ot_train.py:351 step:13K smpl:858K ep:921 epch:23.03 loss:0.083 grdn:5.661 lr:1.0e-05 updt_s:0.262 data_s:0.009
+INFO 2025-12-06 11:13:38 ot_train.py:351 step:14K smpl:870K ep:935 epch:23.38 loss:0.082 grdn:5.821 lr:1.0e-05 updt_s:0.262 data_s:0.036
+INFO 2025-12-06 11:14:32 ot_train.py:351 step:14K smpl:883K ep:949 epch:23.72 loss:0.083 grdn:5.959 lr:1.0e-05 updt_s:0.262 data_s:0.009
+INFO 2025-12-06 11:15:26 ot_train.py:351 step:14K smpl:896K ep:963 epch:24.06 loss:0.082 grdn:6.176 lr:1.0e-05 updt_s:0.262 data_s:0.009
+INFO 2025-12-06 11:15:26 ot_train.py:361 Checkpoint policy after step 14000
+INFO 2025-12-06 11:16:27 ot_train.py:351 step:14K smpl:909K ep:976 epch:24.41 loss:0.081 grdn:5.977 lr:1.0e-05 updt_s:0.262 data_s:0.036
+INFO 2025-12-06 11:17:22 ot_train.py:351 step:14K smpl:922K ep:990 epch:24.75 loss:0.080 grdn:6.054 lr:1.0e-05 updt_s:0.262 data_s:0.009
+INFO 2025-12-06 11:18:16 ot_train.py:351 step:15K smpl:934K ep:1K epch:25.09 loss:0.080 grdn:5.443 lr:1.0e-05 updt_s:0.262 data_s:0.009
+INFO 2025-12-06 11:19:15 ot_train.py:351 step:15K smpl:947K ep:1K epch:25.44 loss:0.079 grdn:5.376 lr:1.0e-05 updt_s:0.262 data_s:0.033
+INFO 2025-12-06 11:20:10 ot_train.py:351 step:15K smpl:960K ep:1K epch:25.78 loss:0.079 grdn:5.517 lr:1.0e-05 updt_s:0.263 data_s:0.009
+INFO 2025-12-06 11:20:10 ot_train.py:361 Checkpoint policy after step 15000
+INFO 2025-12-06 11:20:11 ot_train.py:430 End of training
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 407, in hf_raise_for_status
+    response.raise_for_status()
+  File "/opt/venv/lib/python3.12/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://huggingface.co/api/models/HankLL/ServeEggSushi/xet-write-token/main
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/venv/bin/lerobot-train", line 7, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/workspace/lerobot/src/lerobot/scripts/lerobot_train.py", line 444, in main
+    train()
+  File "/workspace/lerobot/src/lerobot/configs/parser.py", line 233, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/lerobot/src/lerobot/scripts/lerobot_train.py", line 434, in train
+    unwrapped_policy.push_model_to_hub(cfg)
+  File "/workspace/lerobot/src/lerobot/policies/pretrained.py", line 228, in push_model_to_hub
+    commit_info = api.upload_folder(
+                  ^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/hf_api.py", line 1669, in _inner
+    return fn(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/hf_api.py", line 4993, in upload_folder
+    commit_info = self.create_commit(
+                  ^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/hf_api.py", line 1669, in _inner
+    return fn(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/hf_api.py", line 4250, in create_commit
+    self.preupload_lfs_files(
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/hf_api.py", line 4534, in preupload_lfs_files
+    _upload_xet_files(**upload_kwargs, create_pr=create_pr)  # type: ignore [arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/_commit_api.py", line 538, in _upload_xet_files
+    xet_connection_info = fetch_xet_connection_info_from_repo_info(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/utils/_xet.py", line 158, in fetch_xet_connection_info_from_repo_info
+    return _fetch_xet_connection_info_with_url(url, headers, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/utils/_xet.py", line 187, in _fetch_xet_connection_info_with_url
+    hf_raise_for_status(resp)
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 471, in hf_raise_for_status
+    raise _format(HfHubHTTPError, message, response) from e
+huggingface_hub.errors.HfHubHTTPError: (Request ID: Root=1-6934116c-3fe5709700c7451664dcd01f;330160e1-4431-40d1-900a-edd48e08a16c)
+
+403 Forbidden: Forbidden: pass `create_pr=1` as a query parameter to create a Pull Request.
+Cannot access content at: https://huggingface.co/api/models/HankLL/ServeEggSushi/xet-write-token/main.
+Make sure your token has the correct permissions.

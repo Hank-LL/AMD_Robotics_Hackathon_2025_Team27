@@ -1,0 +1,130 @@
+INFO 2025-12-06 07:32:13 db_utils.py:102 [1m[34mLogs will be synced with wandb.[0m
+INFO 2025-12-06 07:32:13 db_utils.py:103 Track this run --> [1m[33mhttps://wandb.ai/kiyodai02-meiji/lerobot/runs/idlwayd2[0m
+INFO 2025-12-06 07:32:13 ot_train.py:183 Creating dataset
+stats.json: 13.0kB [00:00, 27.9MB/s]                      | 0/6 [00:00<?, ?it/s]
+info.json: 3.23kB [00:00, 11.9MB/s]rquet:   0%|      | 0.00/103k [00:00<?, ?B/s]
+meta/episodes/chunk-000/file-001.parquet: 100%|█| 93.0k/93.0k [00:00<00:00, 266k
+meta/tasks.parquet: 100%|██████████████████| 2.17k/2.17k [00:00<00:00, 5.98kB/s]
+meta/episodes/chunk-000/file-002.parquet: 100%|█| 64.7k/64.7k [00:00<00:00, 201k
+meta/episodes/chunk-000/file-000.parquet: 100%|█| 103k/103k [00:00<00:00, 273kB/
+Fetching 6 files: 100%|███████████████████████████| 6/6 [00:00<00:00, 10.25it/s]
+README.md: 3.72kB [00:00, 14.2MB/s]                      | 0/17 [00:00<?, ?it/s]
+.gitattributes: 2.46kB [00:00, 10.5MB/s]             | 0.00/407k [00:00<?, ?B/s]
+data/chunk-000/file-002.parquet: 100%|███████| 407k/407k [00:00<00:00, 3.42MB/s]
+data/chunk-000/file-000.parquet: 100%|███████| 804k/804k [00:00<00:00, 5.56MB/s]
+data/chunk-000/file-001.parquet: 100%|███████| 462k/462k [00:00<00:00, 3.02MB/s]
+videos/observation.images.top/chunk-000/(…): 100%|█| 110M/110M [00:00<00:00, 111
+videos/observation.images.top/chunk-000/(…): 100%|█| 120M/120M [00:01<00:00, 111
+videos/observation.images.wrist/chunk-00(…): 100%|█| 98.0M/98.0M [00:01<00:00, 8
+videos/observation.images.wrist/chunk-00(…): 100%|█| 92.6M/92.6M [00:01<00:00, 8
+videos/observation.images.wrist/chunk-00(…): 100%|█| 175M/175M [00:01<00:00, 128
+videos/observation.images.top/chunk-000/(…): 100%|█| 207M/207M [00:01<00:00, 140
+Fetching 17 files: 100%|████████████████████████| 17/17 [00:01<00:00,  9.74it/s]
+INFO 2025-12-06 07:32:16 ot_train.py:202 Creating policy
+INFO 2025-12-06 07:32:17 ot_train.py:247 Creating optimizer and scheduler0:01, 3
+INFO 2025-12-06 07:32:17 ot_train.py:259 [1m[33mOutput dir:[0m outputs/train/serve_egg_sushi
+INFO 2025-12-06 07:32:17 ot_train.py:262 cfg.steps=10000 (10K)0M [00:01<00:00, 9
+INFO 2025-12-06 07:32:17 ot_train.py:263 dataset.num_frames=37236 (37K)0:00, 94.
+INFO 2025-12-06 07:32:17 ot_train.py:264 dataset.num_episodes=40
+INFO 2025-12-06 07:32:17 ot_train.py:267 Effective batch size: 64 x 1 = 64
+INFO 2025-12-06 07:32:17 ot_train.py:268 num_learnable_params=51597190 (52M)
+INFO 2025-12-06 07:32:17 ot_train.py:269 num_total_params=51597190 (52M)
+INFO 2025-12-06 07:32:17 ot_train.py:324 Start offline training on a fixed dataset
+INFO 2025-12-06 07:34:03 ot_train.py:351 step:200 smpl:13K ep:14 epch:0.34 loss:5.630 grdn:81.750 lr:1.0e-05 updt_s:0.510 data_s:0.021
+INFO 2025-12-06 07:34:57 ot_train.py:351 step:400 smpl:26K ep:28 epch:0.69 loss:2.170 grdn:38.310 lr:1.0e-05 updt_s:0.258 data_s:0.009
+INFO 2025-12-06 07:42:26 ot_train.py:351 step:600 smpl:38K ep:41 epch:1.03 loss:1.700 grdn:33.753 lr:1.0e-05 updt_s:2.215 data_s:0.031
+INFO 2025-12-06 07:43:19 ot_train.py:351 step:800 smpl:51K ep:55 epch:1.38 loss:1.353 grdn:32.237 lr:1.0e-05 updt_s:0.256 data_s:0.010
+INFO 2025-12-06 07:44:12 ot_train.py:351 step:1K smpl:64K ep:69 epch:1.72 loss:1.101 grdn:28.686 lr:1.0e-05 updt_s:0.256 data_s:0.009
+INFO 2025-12-06 07:44:12 ot_train.py:361 Checkpoint policy after step 1000
+INFO 2025-12-06 07:45:12 ot_train.py:351 step:1K smpl:77K ep:83 epch:2.06 loss:0.887 grdn:25.681 lr:1.0e-05 updt_s:0.256 data_s:0.034
+INFO 2025-12-06 07:46:05 ot_train.py:351 step:1K smpl:90K ep:96 epch:2.41 loss:0.724 grdn:23.906 lr:1.0e-05 updt_s:0.256 data_s:0.009
+INFO 2025-12-06 07:46:58 ot_train.py:351 step:2K smpl:102K ep:110 epch:2.75 loss:0.601 grdn:22.729 lr:1.0e-05 updt_s:0.257 data_s:0.009
+INFO 2025-12-06 07:47:56 ot_train.py:351 step:2K smpl:115K ep:124 epch:3.09 loss:0.505 grdn:20.848 lr:1.0e-05 updt_s:0.256 data_s:0.034
+INFO 2025-12-06 07:48:49 ot_train.py:351 step:2K smpl:128K ep:138 epch:3.44 loss:0.430 grdn:18.999 lr:1.0e-05 updt_s:0.256 data_s:0.009
+INFO 2025-12-06 07:48:49 ot_train.py:361 Checkpoint policy after step 2000
+INFO 2025-12-06 07:49:44 ot_train.py:351 step:2K smpl:141K ep:151 epch:3.78 loss:0.376 grdn:18.211 lr:1.0e-05 updt_s:0.256 data_s:0.009
+INFO 2025-12-06 07:50:42 ot_train.py:351 step:2K smpl:154K ep:165 epch:4.13 loss:0.333 grdn:17.188 lr:1.0e-05 updt_s:0.256 data_s:0.034
+INFO 2025-12-06 07:51:35 ot_train.py:351 step:3K smpl:166K ep:179 epch:4.47 loss:0.300 grdn:16.040 lr:1.0e-05 updt_s:0.256 data_s:0.009
+INFO 2025-12-06 07:52:28 ot_train.py:351 step:3K smpl:179K ep:193 epch:4.81 loss:0.274 grdn:15.424 lr:1.0e-05 updt_s:0.256 data_s:0.009
+INFO 2025-12-06 07:53:27 ot_train.py:351 step:3K smpl:192K ep:206 epch:5.16 loss:0.255 grdn:15.235 lr:1.0e-05 updt_s:0.256 data_s:0.035
+INFO 2025-12-06 07:53:27 ot_train.py:361 Checkpoint policy after step 3000
+INFO 2025-12-06 07:54:21 ot_train.py:351 step:3K smpl:205K ep:220 epch:5.50 loss:0.239 grdn:14.839 lr:1.0e-05 updt_s:0.256 data_s:0.009
+INFO 2025-12-06 07:55:14 ot_train.py:351 step:3K smpl:218K ep:234 epch:5.84 loss:0.225 grdn:13.503 lr:1.0e-05 updt_s:0.256 data_s:0.009
+INFO 2025-12-06 07:56:12 ot_train.py:351 step:4K smpl:230K ep:248 epch:6.19 loss:0.214 grdn:13.289 lr:1.0e-05 updt_s:0.256 data_s:0.033
+INFO 2025-12-06 07:57:05 ot_train.py:351 step:4K smpl:243K ep:261 epch:6.53 loss:0.202 grdn:12.495 lr:1.0e-05 updt_s:0.256 data_s:0.009
+INFO 2025-12-06 07:57:58 ot_train.py:351 step:4K smpl:256K ep:275 epch:6.88 loss:0.195 grdn:12.696 lr:1.0e-05 updt_s:0.256 data_s:0.009
+INFO 2025-12-06 07:57:58 ot_train.py:361 Checkpoint policy after step 4000
+INFO 2025-12-06 07:58:58 ot_train.py:351 step:4K smpl:269K ep:289 epch:7.22 loss:0.185 grdn:11.721 lr:1.0e-05 updt_s:0.256 data_s:0.034
+INFO 2025-12-06 07:59:51 ot_train.py:351 step:4K smpl:282K ep:303 epch:7.56 loss:0.179 grdn:12.041 lr:1.0e-05 updt_s:0.256 data_s:0.009
+INFO 2025-12-06 08:00:44 ot_train.py:351 step:5K smpl:294K ep:316 epch:7.91 loss:0.172 grdn:11.263 lr:1.0e-05 updt_s:0.256 data_s:0.009
+INFO 2025-12-06 08:01:43 ot_train.py:351 step:5K smpl:307K ep:330 epch:8.25 loss:0.166 grdn:11.197 lr:1.0e-05 updt_s:0.256 data_s:0.038
+INFO 2025-12-06 08:02:36 ot_train.py:351 step:5K smpl:320K ep:344 epch:8.59 loss:0.161 grdn:10.607 lr:1.0e-05 updt_s:0.256 data_s:0.009
+INFO 2025-12-06 08:02:36 ot_train.py:361 Checkpoint policy after step 5000
+INFO 2025-12-06 08:03:30 ot_train.py:351 step:5K smpl:333K ep:358 epch:8.94 loss:0.157 grdn:11.352 lr:1.0e-05 updt_s:0.256 data_s:0.009
+INFO 2025-12-06 08:04:29 ot_train.py:351 step:5K smpl:346K ep:371 epch:9.28 loss:0.153 grdn:11.580 lr:1.0e-05 updt_s:0.257 data_s:0.037
+INFO 2025-12-06 08:05:22 ot_train.py:351 step:6K smpl:358K ep:385 epch:9.63 loss:0.148 grdn:10.108 lr:1.0e-05 updt_s:0.256 data_s:0.009
+INFO 2025-12-06 08:06:16 ot_train.py:351 step:6K smpl:371K ep:399 epch:9.97 loss:0.144 grdn:9.842 lr:1.0e-05 updt_s:0.256 data_s:0.009
+INFO 2025-12-06 08:07:13 ot_train.py:351 step:6K smpl:384K ep:413 epch:10.31 loss:0.141 grdn:10.140 lr:1.0e-05 updt_s:0.256 data_s:0.031
+INFO 2025-12-06 08:07:13 ot_train.py:361 Checkpoint policy after step 6000
+INFO 2025-12-06 08:08:08 ot_train.py:351 step:6K smpl:397K ep:426 epch:10.66 loss:0.137 grdn:9.634 lr:1.0e-05 updt_s:0.256 data_s:0.009
+INFO 2025-12-06 08:09:01 ot_train.py:351 step:6K smpl:410K ep:440 epch:11.00 loss:0.134 grdn:8.570 lr:1.0e-05 updt_s:0.256 data_s:0.009
+INFO 2025-12-06 08:09:59 ot_train.py:351 step:7K smpl:422K ep:454 epch:11.34 loss:0.129 grdn:8.759 lr:1.0e-05 updt_s:0.257 data_s:0.036
+INFO 2025-12-06 08:10:53 ot_train.py:351 step:7K smpl:435K ep:468 epch:11.69 loss:0.128 grdn:9.154 lr:1.0e-05 updt_s:0.256 data_s:0.009
+INFO 2025-12-06 08:11:50 ot_train.py:351 step:7K smpl:448K ep:481 epch:12.03 loss:0.126 grdn:8.919 lr:1.0e-05 updt_s:0.256 data_s:0.033
+INFO 2025-12-06 08:11:50 ot_train.py:361 Checkpoint policy after step 7000
+INFO 2025-12-06 08:12:45 ot_train.py:351 step:7K smpl:461K ep:495 epch:12.38 loss:0.123 grdn:9.109 lr:1.0e-05 updt_s:0.256 data_s:0.009
+INFO 2025-12-06 08:13:38 ot_train.py:351 step:7K smpl:474K ep:509 epch:12.72 loss:0.121 grdn:8.496 lr:1.0e-05 updt_s:0.256 data_s:0.009
+INFO 2025-12-06 08:14:36 ot_train.py:351 step:8K smpl:486K ep:523 epch:13.06 loss:0.119 grdn:8.065 lr:1.0e-05 updt_s:0.256 data_s:0.033
+INFO 2025-12-06 08:15:29 ot_train.py:351 step:8K smpl:499K ep:536 epch:13.41 loss:0.116 grdn:8.082 lr:1.0e-05 updt_s:0.256 data_s:0.009
+INFO 2025-12-06 08:16:22 ot_train.py:351 step:8K smpl:512K ep:550 epch:13.75 loss:0.115 grdn:8.320 lr:1.0e-05 updt_s:0.257 data_s:0.009
+INFO 2025-12-06 08:16:22 ot_train.py:361 Checkpoint policy after step 8000
+INFO 2025-12-06 08:17:22 ot_train.py:351 step:8K smpl:525K ep:564 epch:14.09 loss:0.113 grdn:8.411 lr:1.0e-05 updt_s:0.256 data_s:0.034
+INFO 2025-12-06 08:18:15 ot_train.py:351 step:8K smpl:538K ep:578 epch:14.44 loss:0.111 grdn:7.774 lr:1.0e-05 updt_s:0.256 data_s:0.010
+INFO 2025-12-06 08:19:08 ot_train.py:351 step:9K smpl:550K ep:591 epch:14.78 loss:0.109 grdn:8.395 lr:1.0e-05 updt_s:0.256 data_s:0.009
+INFO 2025-12-06 08:20:07 ot_train.py:351 step:9K smpl:563K ep:605 epch:15.13 loss:0.107 grdn:7.335 lr:1.0e-05 updt_s:0.256 data_s:0.035
+INFO 2025-12-06 08:21:01 ot_train.py:351 step:9K smpl:576K ep:619 epch:15.47 loss:0.105 grdn:7.580 lr:1.0e-05 updt_s:0.256 data_s:0.016
+INFO 2025-12-06 08:21:01 ot_train.py:361 Checkpoint policy after step 9000
+INFO 2025-12-06 08:21:56 ot_train.py:351 step:9K smpl:589K ep:633 epch:15.81 loss:0.105 grdn:7.846 lr:1.0e-05 updt_s:0.257 data_s:0.010
+INFO 2025-12-06 08:22:55 ot_train.py:351 step:9K smpl:602K ep:646 epch:16.16 loss:0.103 grdn:7.393 lr:1.0e-05 updt_s:0.255 data_s:0.040
+INFO 2025-12-06 08:23:50 ot_train.py:351 step:10K smpl:614K ep:660 epch:16.50 loss:0.101 grdn:7.515 lr:1.0e-05 updt_s:0.255 data_s:0.020
+INFO 2025-12-06 08:24:45 ot_train.py:351 step:10K smpl:627K ep:674 epch:16.84 loss:0.101 grdn:7.075 lr:1.0e-05 updt_s:0.256 data_s:0.019
+INFO 2025-12-06 08:25:44 ot_train.py:351 step:10K smpl:640K ep:688 epch:17.19 loss:0.099 grdn:6.936 lr:1.0e-05 updt_s:0.256 data_s:0.036
+INFO 2025-12-06 08:25:44 ot_train.py:361 Checkpoint policy after step 10000
+INFO 2025-12-06 08:25:45 ot_train.py:430 End of training
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 407, in hf_raise_for_status
+    response.raise_for_status()
+  File "/opt/venv/lib/python3.12/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://huggingface.co/api/repos/create
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/venv/bin/lerobot-train", line 7, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/workspace/lerobot/src/lerobot/scripts/lerobot_train.py", line 444, in main
+    train()
+  File "/workspace/lerobot/src/lerobot/configs/parser.py", line 233, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/lerobot/src/lerobot/scripts/lerobot_train.py", line 434, in train
+    unwrapped_policy.push_model_to_hub(cfg)
+  File "/workspace/lerobot/src/lerobot/policies/pretrained.py", line 211, in push_model_to_hub
+    repo_id = api.create_repo(
+              ^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/hf_api.py", line 3779, in create_repo
+    raise err
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/hf_api.py", line 3766, in create_repo
+    hf_raise_for_status(r)
+  File "/opt/venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 471, in hf_raise_for_status
+    raise _format(HfHubHTTPError, message, response) from e
+huggingface_hub.errors.HfHubHTTPError: (Request ID: Root=1-6933e889-58329393053d755053c84f5d;fdacf223-7927-4650-9bee-fa3312ce6c1c)
+
+403 Forbidden: You don't have the rights to create a model under the namespace "HaknLL".
+Cannot access content at: https://huggingface.co/api/repos/create.
+Make sure your token has the correct permissions.
