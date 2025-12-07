@@ -111,6 +111,7 @@ Compared to “one giant model that does everything,” our approach:
   - The operator physically guided the SO-101 arm (kinesthetic teaching) to demonstrate:
     - Placing tuna/egg/tempura on rice and then on a plate.
     - Picking and serving cucumber rolls directly to a plate.
+    - Placeing the greentea cup right next to the saucer.
   - We carefully designed the camera viewpoints so that:
     - The target objects (rice, toppings, plate) are clearly visible.
     - The workspace is visually simple and consistent.
