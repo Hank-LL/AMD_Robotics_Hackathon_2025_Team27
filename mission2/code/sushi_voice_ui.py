@@ -1,37 +1,78 @@
+import os
 import threading
 import tkinter as tk
+from PIL import Image, ImageTk
 
 from sushi_voice_master import main, RECORD_SECONDS, MIC_DEVICE
 
-# ===== Tkinter UI =====
 
+# ===== パス設定（sushi_voice_ui.py の1つ上の階層にある images/ を見る） =====
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+BACKGROUND_IMAGE = os.path.join(SCRIPT_DIR, "..", "images", "amd_sushi_bg.png")
+# もし sushi_voice_ui.py がプロジェクト直下にある場合は、上の行を
+# BACKGROUND_IMAGE = os.path.join(SCRIPT_DIR, "images", "amd_sushi_bg.png")
+# に変えてください。
+
+
+# ===== Tk ウィンドウ作成 =====
 root = tk.Tk()
-root.title("Sushi Voice Order")
-root.geometry("420x260")
+root.title("AMD Sushi Voice Order")
 
-title_label = tk.Label(root, text="Sushi Voice Order", font=("Helvetica", 16, "bold"))
-title_label.pack(pady=10)
+# 背景画像読み込み
+try:
+    bg_image = Image.open(BACKGROUND_IMAGE)
+except FileNotFoundError as e:
+    raise SystemExit(f"Background image not found: {BACKGROUND_IMAGE}") from e
+
+bg_width, bg_height = bg_image.size
+
+# ウィンドウサイズを画像に合わせる
+root.geometry(f"{bg_width}x{bg_height}")
+
+# Canvas に背景画像を貼る
+canvas = tk.Canvas(
+    root,
+    width=bg_width,
+    height=bg_height,
+    highlightthickness=0,
+    bd=0,
+)
+canvas.pack(fill="both", expand=True)
+
+bg_photo = ImageTk.PhotoImage(bg_image)
+canvas.create_image(0, 0, image=bg_photo, anchor="nw")
+
+
+# ===== ラベル・ボタン用の変数 =====
+status_var = tk.StringVar(value="Idle")
+result_var = tk.StringVar(value="No order yet.")
+
+# 背景となじむ淡い色（好みで調整OK）
+TEXT_BG = "#f8f4e8"
 
 instruction_label = tk.Label(
     root,
     text="Press the button to place your order.",
-    font=("Helvetica", 11),
+    font=("Helvetica", 13, "bold"),
+    bg=TEXT_BG,
 )
-instruction_label.pack(pady=5)
-
-status_var = tk.StringVar(value="Idle")
-status_label = tk.Label(root, textvariable=status_var, font=("Helvetica", 11))
-status_label.pack(pady=5)
-
-result_var = tk.StringVar(value="No order yet.")
-result_label = tk.Label(root, textvariable=result_var, font=("Helvetica", 11, "italic"))
-result_label.pack(pady=5)
+status_label = tk.Label(
+    root,
+    textvariable=status_var,
+    font=("Helvetica", 11),
+    bg=TEXT_BG,
+)
+result_label = tk.Label(
+    root,
+    textvariable=result_var,
+    font=("Helvetica", 11, "italic"),
+    bg=TEXT_BG,
+)
 
 
 def start_recording():
     """Button pressed → start voice order"""
 
-    # 状態リセット＆ボタン無効化
     status_var.set("Listening... Please speak your order.")
     result_var.set("Waiting for your voice...")
     start_button.config(state="disabled")
@@ -67,7 +108,6 @@ def start_recording():
             elif phase == "served":
                 order = info.get("order")
                 status_var.set(f"Robot finished serving: {order}")
-            # loading_model / model_loaded は必要なら追加してもOK
 
         # UIスレッドで安全に更新
         root.after(0, update)
@@ -102,11 +142,19 @@ def start_recording():
 start_button = tk.Button(
     root,
     text="🎤 Start Voice Order",
-    font=("Helvetica", 12),
-    width=22,
+    font=("Helvetica", 12, "bold"),
+    width=20,
     height=2,
+    relief="raised",
     command=start_recording,
 )
-start_button.pack(pady=15)
+
+# ===== Canvas上にウィジェットを配置 =====
+center_x = bg_width // 2
+
+canvas.create_window(center_x, int(bg_height * 0.40), window=instruction_label)
+canvas.create_window(center_x, int(bg_height * 0.55), window=start_button)
+canvas.create_window(center_x, int(bg_height * 0.70), window=status_label)
+canvas.create_window(center_x, int(bg_height * 0.80), window=result_label)
 
 root.mainloop()
