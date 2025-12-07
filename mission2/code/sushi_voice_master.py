@@ -62,7 +62,7 @@ def execute_sushi_serving(orders):
     # Initialize ModelInference
     inference_runner = ModelInference(
         model_paths=SUSHI_MODEL_PATHS,
-        robot_port='/dev/ttyACM0',
+        robot_port='/dev/ttyACM2',
         robot_id='my_awsome_follower_arm',
         cameras="{top: {type: opencv, index_or_path: 8, width: 640, height: 480, fps: 30}, wrist: {type: opencv, index_or_path: 10, width: 640, height: 480, fps: 30}}",
         cache_dir="./model_cache"

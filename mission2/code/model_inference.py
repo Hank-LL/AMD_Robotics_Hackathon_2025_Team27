@@ -10,7 +10,7 @@ class ModelInference:
         self.robot_port = robot_port
         self.robot_id = robot_id
         # Camera configuration (default value)
-        self.cameras = cameras or "{top: {type: opencv, index_or_path: 8, width: 640, height: 480, fps: 30}, wrist: {type: opencv, index_or_path: 10, width: 640, height: 480, fps: 30}}"
+        self.cameras = cameras or "{top: {type: opencv, index_or_path: 8, width: 640, height: 480, fps: 30}, wrist: {type: opencv, index_or_path: 11, width: 640, height: 480, fps: 30}}"
         # Dataset save directory
         self.run_root = run_root or os.path.join(os.getcwd(), "eval_lerobot_dataset")
         # Model cache directory (uses HuggingFace default cache if None)
