@@ -260,7 +260,7 @@ The runtime system is structured as an end-to-end pipeline:
     
     Update device IDs in `code/sushi_voice_master_ui.py` if needed:
     - `MIC_DEVICE`: Microphone device ID
-    - Camera indices in `cameras` parameter
+    - Camera indices in `cameras` parameter<br><br>
 
 
     5. **Run the application**
