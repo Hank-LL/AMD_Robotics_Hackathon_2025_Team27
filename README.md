@@ -15,7 +15,7 @@
   - Voice-driven sushi serving system using SO-101 robot arm and multi-model routing via Hugging Face.
 
 - **Task Definition**
-  - The robot handles four types of sushi-related tasks:
+  - The robot handles five types of sushi-related tasks:
     - Tuna sushi
     - Egg sushi
     - Tempura sushi
