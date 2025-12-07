@@ -59,7 +59,6 @@ Our mission is to build a **multi-model, voice-driven sushi serving assistant** 
 ---
 
 ### 2. Creativity  
-*What is novel or unique in your approach?*  
 
 #### 2.1 Intent-aware multi-model routing
 
