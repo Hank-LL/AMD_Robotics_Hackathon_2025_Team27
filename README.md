@@ -290,14 +290,14 @@ Note: The robot switches models depending on the requested sushi item, so each m
 - [ServeTunaSushi](https://huggingface.co/datasets/HankLL/ServeTunaSushi)
 - [ServeCucumberRoll](https://huggingface.co/datasets/HankLL/ServeCucumberRoll)
 - [ServeTempuraSushi](https://huggingface.co/datasets/HankLL/ServeTempuraSushi)
-- [ServeServeTeacup](https://huggingface.co/HankLL/ServeTeacup)
+- [ServeServeTeacup](https://huggingface.co/datasets/HankLL/ServeTeacup)
 
 ### URL of your model in Hugging Face
 - [ServeEggSushi](https://huggingface.co/HankLL/ServeEggSushi)
 - [ServeTunaSushi](https://huggingface.co/HankLL/ServeTunaSushi)
 - [ServeCucumberRoll](https://huggingface.co/HankLL/ServeCucumberRoll)
 - [ServeTempuraSushi](https://huggingface.co/HankLL/ServeTempuraSushi)
-- [ServeServeTeacup](https://huggingface.co/datasets/HankLL/ServeTeacup)
+- [ServeServeTeacup](https://huggingface.co/HankLL/ServeTeacup)
 
 ## System Structure
 
