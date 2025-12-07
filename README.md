@@ -20,15 +20,20 @@
     - Egg sushi
     - Tempura sushi
     - Cucumber roll
+    - Green tea
 
 - **Serving Flow**
   1. Receive a sushi order via microphone in natural language  
      (e.g., “tuna please”, “the red one”, “vegan option”, “something for kids”).
   2. Interpret the order, select the appropriate model, and execute the serving motion:
-     - **Tuna, Tempura, Egg**
-       - Place the topping on sushi rice and then serve it on a plate.
-     - **Cucumber Roll**
-       - Pick up the roll and serve it directly on a plate.
+
+| Item                      | Task Description                                   |
+|---------------------------|----------------------------------------------------|
+| 🥚 Egg Sushi              | Place topping on sushi rice, then serve on plate  |
+| 🐟 Tuna Sushi             | Place topping on sushi rice, then serve on plate  |
+| 🥒 Cucumber Roll          | Serve roll directly on plate                      |
+| 🍤 Tempura (Fried Shrimp) | Place topping on sushi rice, then serve on plate  |
+| 🧉 Greentea Cup           | Serve cup directly next to plate                  |
 
 ---
 
@@ -37,7 +42,7 @@
 ### 1. Mission Description  
 *Real world application of your mission*
 
-Our mission is to build a **voice-based sushi serving assistant** that can operate in semi-realistic food service environments.
+Our mission is to build a **multi-model, voice-driven sushi serving assistant** that fuses speech recognition, language understanding, and per-dish robot policies into a single seamless system for real food service environments.
 
 - Target scenarios:
   - Food courts, fast food restaurants, and small sushi counters where repetitive “pick-and-place” style tasks are common.
@@ -49,7 +54,7 @@ Our mission is to build a **voice-based sushi serving assistant** that can opera
     - Children
     - Foreign tourists who struggle with Japanese or complex touch-panel UIs.
 - Robotics perspective:
-  - The project showcases an end-to-end pipeline from **speech recognition → language understanding → task selection → robot execution** on a real arm, using commodity hardware (USB cameras, microphone, consumer PC).
+  - The project showcases a pipeline from **speech recognition → language understanding → task selection → robot execution** on a real arm, using commodity hardware (RGB cameras, microphone, consumer PC).
 
 ---
 
@@ -66,12 +71,9 @@ Instead of training a single monolithic policy that covers all sushi types, we:
   - Interpret vague or indirect expressions (e.g., “the red one”, “vegan option”, “for kids”).
   - Infer the intended menu item from context.
 - Map the interpreted intent to one of several **discrete skills**:
-  - `tuna`, `egg`, `tempura`, `cucumber_roll`
+  - `tuna`, `egg`, `tempura`, `cucumber_roll`, `greentea_cup`
 - Automatically select and load the corresponding **Hugging Face policy model**:
-  - `HankLL/ServeTunaSushi`
-  - `HankLL/ServeEggSushi`
-  - `HankLL/ServeTempuraSushi`
-  - `HankLL/ServeCucumberRoll`
+
 
 This design lets the user give **natural, sometimes ambiguous voice commands** without knowing the exact menu names, while the system handles the mapping to the correct robot skill.
 
