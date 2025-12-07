@@ -99,7 +99,7 @@
 | 🥒 Cucumber Roll |
 | 🍤 Tempura (Fried Shrimp) |
 
-**Delivery URL**
+## Delivery URL
 
 Note: The robot switches models depending on the requested sushi item, so each menu entry has a dedicated dataset and model.
 
