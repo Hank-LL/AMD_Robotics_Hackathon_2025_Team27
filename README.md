@@ -280,7 +280,11 @@ The runtime system is structured as an end-to-end pipeline:
 
 Note: The robot switches models depending on the requested sushi item, so each menu entry has a dedicated dataset and model.
 
-- *Link to a video of your robot performing the task*
+### Link to a video of your robot performing the task
+
+- (recording)[https://youtu.be/fsniYRbwewI?si=UBAtkGbdxnlD5s4B]
+- (inference)[https://youtube.com/shorts/wll964TdrcQ?si=rXTlZOPqFFjENat8]
+
 ### URL of your dataset in Hugging Face
 - [ServeEggSushi](https://huggingface.co/datasets/HankLL/ServeEggSushi)
 - [ServeTunaSushi](https://huggingface.co/datasets/HankLL/ServeTunaSushi)
