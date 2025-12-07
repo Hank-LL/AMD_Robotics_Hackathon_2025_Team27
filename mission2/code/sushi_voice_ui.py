@@ -6,19 +6,16 @@ from PIL import Image, ImageTk
 from sushi_voice_master import main, RECORD_SECONDS, MIC_DEVICE
 
 
-# ===== パス設定（sushi_voice_ui.py の1つ上の階層にある images/ を見る） =====
+# ===== Path settings (look for images/ one level above sushi_voice_ui.py) =====
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 BACKGROUND_IMAGE = os.path.join(SCRIPT_DIR, "..", "images", "amd_sushi_bg.png")
-# もし sushi_voice_ui.py がプロジェクト直下にある場合は、上の行を
-# BACKGROUND_IMAGE = os.path.join(SCRIPT_DIR, "images", "amd_sushi_bg.png")
-# に変えてください。
 
 
-# ===== Tk ウィンドウ作成 =====
+# ===== Create Tk window =====
 root = tk.Tk()
-root.title("AMD Sushi Voice Order")
+root.title("Sushi Voice Order")
 
-# 背景画像読み込み
+# Load background image
 try:
     bg_image = Image.open(BACKGROUND_IMAGE)
 except FileNotFoundError as e:
@@ -26,10 +23,10 @@ except FileNotFoundError as e:
 
 bg_width, bg_height = bg_image.size
 
-# ウィンドウサイズを画像に合わせる
+# Set window size to match the image size
 root.geometry(f"{bg_width}x{bg_height}")
 
-# Canvas に背景画像を貼る
+# Create canvas and draw background image
 canvas = tk.Canvas(
     root,
     width=bg_width,
@@ -43,11 +40,11 @@ bg_photo = ImageTk.PhotoImage(bg_image)
 canvas.create_image(0, 0, image=bg_photo, anchor="nw")
 
 
-# ===== ラベル・ボタン用の変数 =====
+# ===== Variables for labels and buttons =====
 status_var = tk.StringVar(value="Idle")
 result_var = tk.StringVar(value="No order yet.")
 
-# 背景となじむ淡い色（好みで調整OK）
+# Soft background color that blends with the main image (tweak as you like)
 TEXT_BG = "#f8f4e8"
 
 instruction_label = tk.Label(
@@ -71,14 +68,14 @@ result_label = tk.Label(
 
 
 def start_recording():
-    """Button pressed → start voice order"""
+    """Callback when the button is pressed → start voice order."""
 
     status_var.set("Listening... Please speak your order.")
     result_var.set("Waiting for your voice...")
     start_button.config(state="disabled")
 
     def status_callback(phase, **info):
-        """sushi_voice_master から状態通知を受けて UI を更新"""
+        """Receive status updates from sushi_voice_master and update the UI."""
         def update():
             if phase == "recording_started":
                 status_var.set(
@@ -109,11 +106,11 @@ def start_recording():
                 order = info.get("order")
                 status_var.set(f"Robot finished serving: {order}")
 
-        # UIスレッドで安全に更新
+        # Safely update the UI from the main thread
         root.after(0, update)
 
     def worker():
-        """重い処理を別スレッドで実行"""
+        """Run the heavy processing (recording + decoding) in a separate thread."""
         try:
             text, order = main(status_callback=status_callback)
 
@@ -149,7 +146,7 @@ start_button = tk.Button(
     command=start_recording,
 )
 
-# ===== Canvas上にウィジェットを配置 =====
+# ===== Place widgets on the canvas =====
 center_x = bg_width // 2
 
 canvas.create_window(center_x, int(bg_height * 0.40), window=instruction_label)
