@@ -71,8 +71,8 @@ def get_image_path_for_order(order: str) -> str:
         "tempura (fried shrimp)": "tempura.png",
         "tempura": "tempura.png",          # extra alias, just in case
         "greentea cup": "greentea_cup.png",
-        "green tea": "greentea_cup.png",   # alias, in case Gemini returns this
-        "tea": "greentea_cup.png",         # another alias
+        "green tea": "greentea_cup.png",   # alias
+        "tea": "greentea_cup.png",         # alias
     }
 
     key = order.lower().strip()
@@ -98,6 +98,7 @@ def show_sushi_image(order: str):
     try:
         img = Image.open(img_path)
     except FileNotFoundError:
+        # Only show a simple status; this should not happen if images are prepared correctly.
         status_var.set(f"Image not found for order: {order}")
         return
 
@@ -160,10 +161,6 @@ def set_button_enabled(enabled: bool):
     if button_circle_id is not None:
         canvas.itemconfigure(button_circle_id, fill=fill)
         canvas.itemconfigure(button_text_id, fill="#000000")
-        canvas.itemconfigure(button_circle_id, state="normal")
-        canvas.itemconfigure(button_text_id, state="normal")
-        canvas.itemconfigure(button_circle_id, tags=("round_button",))
-        canvas.itemconfigure(button_text_id, tags=("round_button_text",))
 
     canvas.config(cursor=cursor)
 
@@ -246,16 +243,10 @@ def start_recording():
                 status_var.set("Understanding your order, please wait...")
             elif phase == "recognized":
                 order = info.get("order")
-                if order:
-                    status_var.set("Order recognized.")
-                    result_var.set(f"Order recognized: {order}")
-                    show_sushi_image(order)
-                else:
-                    status_var.set("Could not recognize your order.")
-                    result_var.set("Could not recognize your order.")
-            elif phase == "failed":
-                status_var.set("Could not understand the audio.")
-                result_var.set("No valid order was recognized.")
+                # Backend guarantees order is always a valid menu item.
+                status_var.set("Order recognized.")
+                result_var.set(f"Order recognized: {order}")
+                show_sushi_image(order)
             elif phase == "serving":
                 order = info.get("order")
                 status_var.set(f"Serving the robot: {order} ...")
@@ -271,18 +262,16 @@ def start_recording():
             text, order = main(status_callback=status_callback)
 
             def finalize():
-                if order:
-                    status_var.set("Order completed.")
-                    result_var.set(f"Final order: {order}")
-                    show_sushi_image(order)
-                else:
-                    status_var.set("Sorry, we could not understand your order.")
-                    result_var.set("Please try again.")
+                # `order` is always one of the menu items.
+                status_var.set("Order completed.")
+                result_var.set(f"Final order: {order}")
+                show_sushi_image(order)
                 set_button_enabled(True)
 
             root.after(0, finalize)
 
         except Exception as e:
+            # This is only for unexpected Python errors, not recognition failures.
             def on_error():
                 status_var.set("Error occurred.")
                 result_var.set(f"Error: {e}")
