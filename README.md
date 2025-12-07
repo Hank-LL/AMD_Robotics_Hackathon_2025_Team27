@@ -10,7 +10,7 @@
 ## Task Summary
 
 - Overview
-    - Sushi Chef Task
+    - Sushi Serving Task
 - Flow
     1. Receive sushi orders via microphone (Tuna, Egg, Tempura, Cucumber Roll)
     2. Serve dishes according to the order
