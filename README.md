@@ -282,8 +282,8 @@ Note: The robot switches models depending on the requested sushi item, so each m
 
 ### Link to a video of your robot performing the task
 
-- (recording)[https://youtu.be/fsniYRbwewI?si=UBAtkGbdxnlD5s4B]
-- (inference)[https://youtube.com/shorts/wll964TdrcQ?si=rXTlZOPqFFjENat8]
+- [recording](https://youtu.be/fsniYRbwewI?si=UBAtkGbdxnlD5s4B)
+- [inference](https://youtube.com/shorts/wll964TdrcQ?si=rXTlZOPqFFjENat8)
 
 ### URL of your dataset in Hugging Face
 - [ServeEggSushi](https://huggingface.co/datasets/HankLL/ServeEggSushi)
