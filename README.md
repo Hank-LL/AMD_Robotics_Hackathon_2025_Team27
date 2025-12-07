@@ -4,8 +4,8 @@
 **Team:** 中野同好会(Nakano Club)  
 * 松田 侑也(Yuya Matsuda)  
 * 清崎 大地(Daichi Kiyozaki)  
-* 渡邉 凌大(Ryota Watanabe)  
-* 高岡 充希(Mitsuki Takaoka)  
+* 渡邉 稜大(Ryota Watanabe)  
+* 高岡 充伎(Mitsuki Takaoka)  
 
 ## Task Summary
 
