@@ -45,7 +45,7 @@
 Our mission is to build a **multi-model, voice-driven sushi serving assistant** that fuses speech recognition, language understanding, and per-dish robot policies into a single seamless system for real food service environments.
 
 - Target scenarios:
-  - Food courts, fast food restaurants, and small sushi counters where repetitive “pick-and-place” style tasks are common.
+  - Sushi counters where repetitive “pick-and-place” style tasks are common.
   - Environments that must handle high customer throughput with limited staff.
 - Social impact:
   - The system aims to help address labor shortages in the Japanese food service industry by automating simple serving tasks.
