@@ -2,10 +2,10 @@
 **Title:** AMD Robotics Hackathon 2025 – Sushi Master
 
 **Team:** 中野同好会 (Nakano Club)  
-- Yuya Matsuda  
-- Daichi Kiyozaki  
-- Ryota Watanabe  
-- Mitsuki Takaoka  
+- Yuya Matsuda (松田 侑也)  
+- Daichi Kiyozaki (清崎 大地)  
+- Ryota Watanabe (渡邉 稜大)  
+- Mitsuki Takaoka (高岡 充伎)  
 
 ---
 
@@ -15,7 +15,7 @@
   - Voice-driven sushi serving system using SO-101 robot arm and multi-model routing via Hugging Face.
 
 - **Task Definition**
-  - The robot handles four types of sushi-related tasks:
+  - The robot handles five types of sushi-related tasks:
     - Tuna sushi
     - Egg sushi
     - Tempura sushi
@@ -45,7 +45,7 @@
 Our mission is to build a **multi-model, voice-driven sushi serving assistant** that fuses speech recognition, language understanding, and per-dish robot policies into a single seamless system for real food service environments.
 
 - Target scenarios:
-  - Food courts, fast food restaurants, and small sushi counters where repetitive “pick-and-place” style tasks are common.
+  - Sushi counters where repetitive “pick-and-place” style tasks are common.
   - Environments that must handle high customer throughput with limited staff.
 - Social impact:
   - The system aims to help address labor shortages in the Japanese food service industry by automating simple serving tasks.

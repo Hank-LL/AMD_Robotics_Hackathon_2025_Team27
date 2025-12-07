@@ -41,14 +41,19 @@ bg_photo = ImageTk.PhotoImage(bg_image)
 canvas.create_image(0, 0, image=bg_photo, anchor="nw")
 
 
-# ===== Variables for labels, buttons, and sushi image =====
+# ===== Layout positions (left / center / right columns) =====
+LEFT_X = int(bg_width * 0.18)
+CENTER_X = int(bg_width * 0.50)
+RIGHT_X = int(bg_width * 0.82)
+CENTER_Y = int(bg_height * 0.55)  # general vertical center of beige area
+
+
+# ===== Variables for labels, status, and sushi image =====
 status_var = tk.StringVar(value="Idle")
 result_var = tk.StringVar(value="No order yet.")
 
-# We need to keep references to the PhotoImage objects,
-# otherwise they will be garbage-collected.
-item_photo = None
-item_image_id = None
+item_photo = None          # keep reference to sushi ImageTk
+item_image_id = None       # canvas id for sushi image
 
 # Soft background color that blends with the main image (tweak as you like)
 TEXT_BG = "#f8f4e8"
@@ -59,12 +64,12 @@ def get_image_path_for_order(order: str) -> str:
     Map an order string (e.g., 'Egg', 'Tuna') to an image file.
     Default: lower-case, spaces -> underscores, then {name}.png
     """
-    # Custom mapping if you want special names
     order_map = {
         "egg": "egg.png",
-        "tempura (fried shrimp)": "tempura_fried_shrimp.png",
         "tuna": "tuna.png",
-        "cucumber roll": "cucumber_roll.png"
+        "cucumber roll": "cucumber_roll.png",
+        "tempura (fried shrimp)": "tempura.png",
+        "tempura": "tempura.png",  # extra alias, just in case
     }
 
     key = order.lower().strip()
@@ -77,7 +82,7 @@ def get_image_path_for_order(order: str) -> str:
 def show_sushi_image(order: str):
     """
     Load and display the sushi image that matches the given order
-    (e.g., Egg -> egg.png, Tuna -> tuna.png).
+    (e.g., Egg -> egg.png, Tuna -> tuna.png) on the right side.
     """
     global item_photo, item_image_id
 
@@ -89,56 +94,145 @@ def show_sushi_image(order: str):
     try:
         img = Image.open(img_path)
     except FileNotFoundError:
-        # If there is no image for this order, just skip.
         status_var.set(f"Image not found for order: {order}")
         return
 
-    # Resize image to fit nicely in the center area
-    max_width = int(bg_width * 0.35)
+    # Resize image to fit nicely in the center-right area
+    max_width = int(bg_width * 0.30)
     max_height = int(bg_height * 0.35)
     img.thumbnail((max_width, max_height), Image.LANCZOS)
 
     item_photo = ImageTk.PhotoImage(img)
 
     if item_image_id is None:
-        # Place the sushi image roughly in the center of the beige area
-        cx = bg_width // 2
-        cy = int(bg_height * 0.60)
+        cx = RIGHT_X
+        cy = CENTER_Y
         item_image_id = canvas.create_image(cx, cy, image=item_photo, anchor="center")
     else:
         canvas.itemconfigure(item_image_id, image=item_photo)
 
 
-# ===== Labels =====
+# ===== Labels (placed in the center column) =====
 instruction_label = tk.Label(
     root,
-    text="Press the button to place your order.",
-    font=("Arial", 20, "bold"),   # bigger & bold
+    text="Press the button on the left to place your order.",
+    font=("Arial", 28, "bold"),
     bg=TEXT_BG,
     fg="#000000",
+    wraplength=int(bg_width * 0.5),
 )
 status_label = tk.Label(
     root,
     textvariable=status_var,
-    font=("Arial", 16, "bold"),   # bigger & bold
+    font=("Arial", 20, "bold"),
     bg=TEXT_BG,
     fg="#000000",
+    wraplength=int(bg_width * 0.5),
 )
 result_label = tk.Label(
     root,
     textvariable=result_var,
-    font=("Arial", 16, "italic"),  # bigger & italic
+    font=("Arial", 20, "italic"),
     bg=TEXT_BG,
     fg="#000000",
+    wraplength=int(bg_width * 0.5),
 )
 
 
-def start_recording():
-    """Callback when the button is pressed → start voice order."""
+# ===== Round "button" drawn on the canvas (left side) =====
+button_circle_id = None
+button_text_id = None
+button_enabled = True
 
+
+def set_button_enabled(enabled: bool):
+    """Enable/disable the round button (change color & state flag)."""
+    global button_enabled
+    button_enabled = enabled
+
+    fill = "#ffffff" if enabled else "#cccccc"
+    cursor = "hand2" if enabled else "arrow"
+
+    if button_circle_id is not None:
+        canvas.itemconfigure(button_circle_id, fill=fill)
+        canvas.itemconfigure(button_text_id, fill="#000000")
+        canvas.itemconfigure(button_circle_id, state="normal")
+        canvas.itemconfigure(button_text_id, state="normal")
+        canvas.itemconfigure(button_circle_id, tags=("round_button",))
+        canvas.itemconfigure(button_text_id, tags=("round_button_text",))
+
+    canvas.config(cursor=cursor)
+
+
+def on_round_button_hover(enter: bool):
+    """Change color slightly on hover when enabled."""
+    if not button_enabled or button_circle_id is None:
+        return
+    fill = "#ffe4b5" if enter else "#ffffff"
+    canvas.itemconfigure(button_circle_id, fill=fill)
+
+
+def on_round_button_click(event):
+    """Handle click on the round button."""
+    if not button_enabled:
+        return
+    start_recording()
+
+
+def create_round_button():
+    """Draw a round button on the left side of the canvas."""
+    global button_circle_id, button_text_id
+
+    radius = int(min(bg_width, bg_height) * 0.10)  # relative size
+    cx = LEFT_X
+    cy = CENTER_Y
+
+    x0 = cx - radius
+    y0 = cy - radius
+    x1 = cx + radius
+    y1 = cy + radius
+
+    button_circle_id = canvas.create_oval(
+        x0,
+        y0,
+        x1,
+        y1,
+        fill="#ffffff",
+        outline="#000000",
+        width=3,
+    )
+
+    button_text_id = canvas.create_text(
+        cx,
+        cy,
+        text="Start\nVoice Order",
+        font=("Arial", 18, "bold"),
+        fill="#000000",
+        justify="center",
+    )
+
+    # Bind events for both the circle and the text
+    for item in (button_circle_id, button_text_id):
+        canvas.tag_bind(item, "<Button-1>", on_round_button_click)
+        canvas.tag_bind(
+            item,
+            "<Enter>",
+            lambda e: on_round_button_hover(True),
+        )
+        canvas.tag_bind(
+            item,
+            "<Leave>",
+            lambda e: on_round_button_hover(False),
+        )
+
+    set_button_enabled(True)
+
+
+def start_recording():
+    """Callback called when the round button is pressed → start voice order."""
     status_var.set("Listening... Please speak your order.")
     result_var.set("Waiting for your voice...")
-    start_button.config(state="disabled")
+    set_button_enabled(False)
 
     def status_callback(phase, **info):
         """Receive status updates from sushi_voice_master and update the UI."""
@@ -159,7 +253,6 @@ def start_recording():
                 if order:
                     status_var.set("Order recognized.")
                     result_var.set(f"Order recognized: {order}")
-                    # Show matching sushi image
                     show_sushi_image(order)
                 else:
                     status_var.set("Could not recognize your order.")
@@ -174,7 +267,6 @@ def start_recording():
                 order = info.get("order")
                 status_var.set(f"Robot finished serving: {order}")
 
-        # Safely update the UI from the main thread
         root.after(0, update)
 
     def worker():
@@ -186,12 +278,11 @@ def start_recording():
                 if order:
                     status_var.set("Order completed.")
                     result_var.set(f"Final order: {order}")
-                    # Ensure final order image is shown
                     show_sushi_image(order)
                 else:
                     status_var.set("Sorry, we could not understand your order.")
                     result_var.set("Please try again.")
-                start_button.config(state="normal")
+                set_button_enabled(True)
 
             root.after(0, finalize)
 
@@ -199,31 +290,19 @@ def start_recording():
             def on_error():
                 status_var.set("Error occurred.")
                 result_var.set(f"Error: {e}")
-                start_button.config(state="normal")
+                set_button_enabled(True)
 
             root.after(0, on_error)
 
     threading.Thread(target=worker, daemon=True).start()
 
 
-start_button = tk.Button(
-    root,
-    text="🎤 Start Voice Order",
-    font=("Arial", 18, "bold"),   # bigger & bold
-    width=20,
-    height=2,
-    relief="raised",
-    command=start_recording,
-)
+# ===== Place labels on the canvas (center column) =====
+canvas.create_window(CENTER_X, int(bg_height * 0.32), window=instruction_label)
+canvas.create_window(CENTER_X, int(bg_height * 0.50), window=status_label)
+canvas.create_window(CENTER_X, int(bg_height * 0.68), window=result_label)
 
-# ===== Place widgets on the canvas =====
-center_x = bg_width // 2
-
-# Slightly higher instruction, then button, then sushi image (centered by show_sushi_image),
-# and finally the status/result near the bottom.
-canvas.create_window(center_x, int(bg_height * 0.33), window=instruction_label)
-canvas.create_window(center_x, int(bg_height * 0.50), window=start_button)
-canvas.create_window(center_x, int(bg_height * 0.82), window=status_label)
-canvas.create_window(center_x, int(bg_height * 0.90), window=result_label)
+# ===== Create the round button on the left =====
+create_round_button()
 
 root.mainloop()
