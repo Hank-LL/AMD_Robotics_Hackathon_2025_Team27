@@ -262,6 +262,7 @@ The runtime system is structured as an end-to-end pipeline:
     - `MIC_DEVICE`: Microphone device ID
     - Camera indices in `cameras` parameter
 
+
     5. **Run the application**
     
     **GUI Version (Recommended):**
