@@ -48,12 +48,12 @@ RIGHT_X = int(bg_width * 0.82)
 CENTER_Y = int(bg_height * 0.55)  # general vertical center of beige area
 
 
-# ===== Variables for labels, status, and sushi image =====
+# ===== Variables for labels, status, and item image =====
 status_var = tk.StringVar(value="Idle")
 result_var = tk.StringVar(value="No order yet.")
 
-item_photo = None          # keep reference to sushi ImageTk
-item_image_id = None       # canvas id for sushi image
+item_photo = None          # keep reference to ImageTk object
+item_image_id = None       # canvas id for the item image
 
 # Soft background color that blends with the main image (tweak as you like)
 TEXT_BG = "#f8f4e8"
@@ -61,7 +61,7 @@ TEXT_BG = "#f8f4e8"
 
 def get_image_path_for_order(order: str) -> str:
     """
-    Map an order string (e.g., 'Egg', 'Tuna') to an image file.
+    Map an order string (e.g., 'Egg', 'Tuna', 'greentea cup') to an image file.
     Default: lower-case, spaces -> underscores, then {name}.png
     """
     order_map = {
@@ -69,7 +69,10 @@ def get_image_path_for_order(order: str) -> str:
         "tuna": "tuna.png",
         "cucumber roll": "cucumber_roll.png",
         "tempura (fried shrimp)": "tempura.png",
-        "tempura": "tempura.png",  # extra alias, just in case
+        "tempura": "tempura.png",          # extra alias, just in case
+        "greentea cup": "greentea_cup.png",
+        "green tea": "greentea_cup.png",   # alias, in case Gemini returns this
+        "tea": "greentea_cup.png",         # another alias
     }
 
     key = order.lower().strip()
@@ -81,8 +84,9 @@ def get_image_path_for_order(order: str) -> str:
 
 def show_sushi_image(order: str):
     """
-    Load and display the sushi image that matches the given order
-    (e.g., Egg -> egg.png, Tuna -> tuna.png) on the right side.
+    Load and display the image that matches the given order
+    (e.g., Egg -> egg.png, Tuna -> tuna.png, greentea cup -> greentea_cup.png)
+    on the right side of the canvas.
     """
     global item_photo, item_image_id
 
@@ -214,16 +218,8 @@ def create_round_button():
     # Bind events for both the circle and the text
     for item in (button_circle_id, button_text_id):
         canvas.tag_bind(item, "<Button-1>", on_round_button_click)
-        canvas.tag_bind(
-            item,
-            "<Enter>",
-            lambda e: on_round_button_hover(True),
-        )
-        canvas.tag_bind(
-            item,
-            "<Leave>",
-            lambda e: on_round_button_hover(False),
-        )
+        canvas.tag_bind(item, "<Enter>", lambda e: on_round_button_hover(True))
+        canvas.tag_bind(item, "<Leave>", lambda e: on_round_button_hover(False))
 
     set_button_enabled(True)
 

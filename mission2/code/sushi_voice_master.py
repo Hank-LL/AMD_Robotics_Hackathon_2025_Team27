@@ -15,7 +15,7 @@ import random
 from model_inference import ModelInference
 
 # Sushi menu definition
-SUSHI_MENU = ["egg", "tuna", "cucumber roll", "tempura (fried shrimp)"]
+SUSHI_MENU = ["egg", "tuna", "cucumber roll", "tempura (fried shrimp)","greentea cup"]
 
 # HuggingFace configuration
 HF_USERNAME = "your_hf_username"  # Replace with your HuggingFace username
@@ -25,7 +25,8 @@ SUSHI_MODEL_PATHS = {
     'egg': f'{HF_USERNAME}/ServeEggSushi',
     'tuna': f'{HF_USERNAME}/ServeTunaSushi',
     'tempura (fried shrimp)': f'{HF_USERNAME}/ServeTempuraSushi',
-    'cucumber roll': f'{HF_USERNAME}/ServeCucumberRoll'
+    'cucumber roll': f'{HF_USERNAME}/ServeCucumberRoll',
+    'greentea cup': f'{HF_USERNAME}/ServeTeacup'
 }
 
 # Gemini API configuration (retrieved from environment variable)
@@ -117,14 +118,14 @@ Customer's statement:
 "{text}"
 
 Instructions:
-1. Identify ONLY ONE sushi item that the customer ordered from the menu
+1. Identify ONLY ONE item that the customer ordered from the menu
 2. If multiple items are mentioned, select only the first or most prominent one
 3. If there are expressions like "recommendation", "suggest", or "your choice", return "recommendation": true
 4. If the text is unclear, infer the menu item with similar pronunciation
 5. Must return in the following JSON format (no other explanation needed):
 
 {{
-    "order": "single sushi item name",
+    "order": "single item name",
     "recommendation": true or false,
     "confidence": "high" or "medium" or "low"
 }}
@@ -163,11 +164,12 @@ def main(status_callback=None):
     """
     Main entry point.
 
-    status_callback が指定されている場合は、処理の段階ごとに
-    status_callback(phase, **info) を呼び出します。
+    If `status_callback` is provided, it will be called at each processing phase as:
+        status_callback(phase, **info)
+    so that a UI can reflect the current state.
     """
     def notify(phase, **info):
-        """UI側に状態を通知するための小さいヘルパー"""
+        """Small helper to send status updates to the UI via status_callback."""
         if status_callback is not None:
             try:
                 status_callback(phase, **info)
