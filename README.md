@@ -59,7 +59,6 @@ Our mission is to build a **multi-model, voice-driven sushi serving assistant** 
 ---
 
 ### 2. Creativity  
-*What is novel or unique in your approach?*  
 
 #### 2.1 Intent-aware multi-model routing
 
@@ -260,7 +259,8 @@ The runtime system is structured as an end-to-end pipeline:
     
     Update device IDs in `code/sushi_voice_master_ui.py` if needed:
     - `MIC_DEVICE`: Microphone device ID
-    - Camera indices in `cameras` parameter
+    - Camera indices in `cameras` parameter<br><br>
+
 
     5. **Run the application**
     
@@ -280,18 +280,24 @@ The runtime system is structured as an end-to-end pipeline:
 
 Note: The robot switches models depending on the requested sushi item, so each menu entry has a dedicated dataset and model.
 
-- *Link to a video of your robot performing the task*
+### Link to a video of your robot performing the task
+
+- [recording](https://youtu.be/fsniYRbwewI?si=UBAtkGbdxnlD5s4B)
+- [inference](https://youtube.com/shorts/wll964TdrcQ?si=rXTlZOPqFFjENat8)
+
 ### URL of your dataset in Hugging Face
 - [ServeEggSushi](https://huggingface.co/datasets/HankLL/ServeEggSushi)
 - [ServeTunaSushi](https://huggingface.co/datasets/HankLL/ServeTunaSushi)
 - [ServeCucumberRoll](https://huggingface.co/datasets/HankLL/ServeCucumberRoll)
 - [ServeTempuraSushi](https://huggingface.co/datasets/HankLL/ServeTempuraSushi)
+- [ServeServeTeacup](https://huggingface.co/datasets/HankLL/ServeTeacup)
 
 ### URL of your model in Hugging Face
 - [ServeEggSushi](https://huggingface.co/HankLL/ServeEggSushi)
 - [ServeTunaSushi](https://huggingface.co/HankLL/ServeTunaSushi)
 - [ServeCucumberRoll](https://huggingface.co/HankLL/ServeCucumberRoll)
 - [ServeTempuraSushi](https://huggingface.co/HankLL/ServeTempuraSushi)
+- [ServeServeTeacup](https://huggingface.co/HankLL/ServeTeacup)
 
 ## System Structure
 
