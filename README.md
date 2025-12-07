@@ -30,7 +30,7 @@
 - Robot arm connected via `/dev/ttyACM0`
 - Gemini API Key
 
-## Model Input Information
+### Model Input Information
 
 - overhead camera(640✕480)
 - wrist camera(640✕480)
