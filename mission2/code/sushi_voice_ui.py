@@ -8,7 +8,8 @@ from sushi_voice_master import main, RECORD_SECONDS, MIC_DEVICE
 
 # ===== Path settings (look for images/ one level above sushi_voice_ui.py) =====
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-BACKGROUND_IMAGE = os.path.join(SCRIPT_DIR, "..", "images", "amd_sushi_bg.png")
+IMAGES_DIR = os.path.join(SCRIPT_DIR, "..", "images")
+BACKGROUND_IMAGE = os.path.join(IMAGES_DIR, "amd_sushi_bg.png")
 
 
 # ===== Create Tk window =====
@@ -40,17 +41,79 @@ bg_photo = ImageTk.PhotoImage(bg_image)
 canvas.create_image(0, 0, image=bg_photo, anchor="nw")
 
 
-# ===== Variables for labels and buttons =====
+# ===== Variables for labels, buttons, and sushi image =====
 status_var = tk.StringVar(value="Idle")
 result_var = tk.StringVar(value="No order yet.")
+
+# We need to keep references to the PhotoImage objects,
+# otherwise they will be garbage-collected.
+item_photo = None
+item_image_id = None
 
 # Soft background color that blends with the main image (tweak as you like)
 TEXT_BG = "#f8f4e8"
 
+
+def get_image_path_for_order(order: str) -> str:
+    """
+    Map an order string (e.g., 'Egg', 'Tuna') to an image file.
+    Default: lower-case, spaces -> underscores, then {name}.png
+    """
+    # Custom mapping if you want special names
+    order_map = {
+        "egg": "egg.png",
+        "tempura (fried shrimp)": "tempura_fried_shrimp.png",
+        "tuna": "tuna.png",
+        "cucumber roll": "cucumber_roll.png"
+    }
+
+    key = order.lower().strip()
+    key_simple = key.replace(" ", "_")
+
+    filename = order_map.get(key, f"{key_simple}.png")
+    return os.path.join(IMAGES_DIR, filename)
+
+
+def show_sushi_image(order: str):
+    """
+    Load and display the sushi image that matches the given order
+    (e.g., Egg -> egg.png, Tuna -> tuna.png).
+    """
+    global item_photo, item_image_id
+
+    if not order:
+        return
+
+    img_path = get_image_path_for_order(order)
+
+    try:
+        img = Image.open(img_path)
+    except FileNotFoundError:
+        # If there is no image for this order, just skip.
+        status_var.set(f"Image not found for order: {order}")
+        return
+
+    # Resize image to fit nicely in the center area
+    max_width = int(bg_width * 0.35)
+    max_height = int(bg_height * 0.35)
+    img.thumbnail((max_width, max_height), Image.LANCZOS)
+
+    item_photo = ImageTk.PhotoImage(img)
+
+    if item_image_id is None:
+        # Place the sushi image roughly in the center of the beige area
+        cx = bg_width // 2
+        cy = int(bg_height * 0.60)
+        item_image_id = canvas.create_image(cx, cy, image=item_photo, anchor="center")
+    else:
+        canvas.itemconfigure(item_image_id, image=item_photo)
+
+
+# ===== Labels =====
 instruction_label = tk.Label(
     root,
     text="Press the button to place your order.",
-    font=("Arial", 20, "bold"),   # bigger & bolder
+    font=("Arial", 20, "bold"),   # bigger & bold
     bg=TEXT_BG,
     fg="#000000",
 )
@@ -96,6 +159,8 @@ def start_recording():
                 if order:
                     status_var.set("Order recognized.")
                     result_var.set(f"Order recognized: {order}")
+                    # Show matching sushi image
+                    show_sushi_image(order)
                 else:
                     status_var.set("Could not recognize your order.")
                     result_var.set("Could not recognize your order.")
@@ -121,6 +186,8 @@ def start_recording():
                 if order:
                     status_var.set("Order completed.")
                     result_var.set(f"Final order: {order}")
+                    # Ensure final order image is shown
+                    show_sushi_image(order)
                 else:
                     status_var.set("Sorry, we could not understand your order.")
                     result_var.set("Please try again.")
@@ -152,9 +219,11 @@ start_button = tk.Button(
 # ===== Place widgets on the canvas =====
 center_x = bg_width // 2
 
-canvas.create_window(center_x, int(bg_height * 0.40), window=instruction_label)
-canvas.create_window(center_x, int(bg_height * 0.55), window=start_button)
-canvas.create_window(center_x, int(bg_height * 0.70), window=status_label)
-canvas.create_window(center_x, int(bg_height * 0.80), window=result_label)
+# Slightly higher instruction, then button, then sushi image (centered by show_sushi_image),
+# and finally the status/result near the bottom.
+canvas.create_window(center_x, int(bg_height * 0.33), window=instruction_label)
+canvas.create_window(center_x, int(bg_height * 0.50), window=start_button)
+canvas.create_window(center_x, int(bg_height * 0.82), window=status_label)
+canvas.create_window(center_x, int(bg_height * 0.90), window=result_label)
 
 root.mainloop()
