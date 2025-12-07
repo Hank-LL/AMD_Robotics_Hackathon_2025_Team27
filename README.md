@@ -192,9 +192,8 @@ The runtime system is structured as an end-to-end pipeline:
 
 5. **User feedback**
    - The GUI displays:
-     - Recognized text
-     - Interpreted order
-     - Selected model name
+     - Interpreted order menu texts
+     - Interpreted order images
    - This transparency helps users understand how the system interpreted their speech and which skill is being used.
 
 > *Image/video of inference and evaluation will be linked in the Additional Links section.*
