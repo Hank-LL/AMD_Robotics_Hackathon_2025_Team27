@@ -282,6 +282,7 @@ Note: The robot switches models depending on the requested sushi item, so each m
 
 ### Link to a video of your robot performing the task
 
+- [full system demo](https://youtu.be/dbQwMPikCeI?si=Yzwrix2C3V7jl4ii)
 - [recording](https://youtu.be/fsniYRbwewI?si=UBAtkGbdxnlD5s4B)
 - [inference](https://youtube.com/shorts/wll964TdrcQ?si=rXTlZOPqFFjENat8)
 
