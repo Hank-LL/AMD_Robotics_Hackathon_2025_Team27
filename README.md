@@ -1,120 +1,302 @@
-# AMD_Robotics_中野同好会(Nakano Club)  
-**Title:** AMD_RoboticHackathon2025-Sushi_Master
+# AMD_Robotics_Nakano Club  
+**Title:** AMD Robotics Hackathon 2025 – Sushi Master
 
-**Team:** 中野同好会(Nakano Club)  
-* 松田 侑也(Yuya Matsuda)  
-* 清崎 大地(Daichi Kiyozaki)  
-* 渡邉 稜大(Ryota Watanabe)  
-* 高岡 充伎(Mitsuki Takaoka)  
+**Team:** 中野同好会 (Nakano Club)  
+- Yuya Matsuda  
+- Daichi Kiyozaki  
+- Ryota Watanabe  
+- Mitsuki Takaoka  
+
+---
 
 ## Task Summary
 
-- Overview
-    - Sushi Serving Task
-- Flow
-    1. Receive sushi orders via microphone (Tuna, Egg, Tempura, Cucumber Roll)
-    2. Serve dishes according to the order
-        1. Tuna, Tempura, Egg:
-            1. Place on sushi rice and serve on a plate
-        2. Cucumber Roll:
-            1. Serve directly on a plate
-...
+- **Overview**
+  - Voice-driven sushi serving system using SO-101 robot arm and multi-model routing via Hugging Face.
 
-## How To Reproduce
+- **Task Definition**
+  - The robot handles four types of sushi-related tasks:
+    - Tuna sushi
+    - Egg sushi
+    - Tempura sushi
+    - Cucumber roll
 
-### Prerequisites
+- **Serving Flow**
+  1. Receive a sushi order via microphone in natural language  
+     (e.g., “tuna please”, “the red one”, “vegan option”, “something for kids”).
+  2. Interpret the order, select the appropriate model, and execute the serving motion:
+     - **Tuna, Tempura, Egg**
+       - Place the topping on sushi rice and then serve it on a plate.
+     - **Cucumber Roll**
+       - Pick up the roll and serve it directly on a plate.
 
-- Python 3.10+
-- USB Microphone (Device ID: 11)
-- USB Cameras (overhead: index 8, wrist: index 10)
-- Robot arm connected via `/dev/ttyACM0`
-- Gemini API Key
+---
 
-### Model Input Information
+## Submission Details
 
-- overhead camera(640✕480)
-- wrist camera(640✕480)
+### 1. Mission Description  
+*Real world application of your mission*
 
+Our mission is to build a **voice-based sushi serving assistant** that can operate in semi-realistic food service environments.
 
-### Setup Steps
+- Target scenarios:
+  - Food courts, fast food restaurants, and small sushi counters where repetitive “pick-and-place” style tasks are common.
+  - Environments that must handle high customer throughput with limited staff.
+- Social impact:
+  - The system aims to help address labor shortages in the Japanese food service industry by automating simple serving tasks.
+  - By using **speech as the main interface**, it lowers the barrier for:
+    - Elderly customers
+    - Children
+    - Foreign tourists who struggle with Japanese or complex touch-panel UIs.
+- Robotics perspective:
+  - The project showcases an end-to-end pipeline from **speech recognition → language understanding → task selection → robot execution** on a real arm, using commodity hardware (USB cameras, microphone, consumer PC).
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/Hank-LL/AMD_Robotics_Hackathon_2025_Team27.git
-   cd AMD_Robotics_Hackathon_2025_Team27/mission2
-   ```
+---
 
-2. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
+### 2. Creativity  
+*What is novel or unique in your approach?*  
 
-3. **Set environment variable for Gemini API**
-   ```bash
-   export GEMINI_API_KEY="your-gemini-api-key"
-   ```
+#### 2.1 Intent-aware multi-model routing
 
-4. **Check device configuration**
-   
-   Verify your microphone and camera device IDs:
-   ```bash
-   # List audio devices
-   python -c "import sounddevice as sd; print(sd.query_devices())"
-   
-   # List video devices
-   ls /dev/video*
-   ```
-   
-   Update device IDs in `code/sushi_voice_master_ui.py` if needed:
-   - `MIC_DEVICE`: Microphone device ID
-   - Camera indices in `cameras` parameter
+Instead of training a single monolithic policy that covers all sushi types, we:
 
-5. **Run the application**
-   
-   **GUI Version (Recommended):**
-   ```bash
-   cd code
-   python sushi_voice_master_ui.py
-   ```
-   
-   **CLI Version:**
-   ```bash
-   cd code
-   python sushi_voice_master.py
-   ```
+- Convert user speech to text using Whisper.
+- Send the transcription to the Gemini API to:
+  - Correct recognition errors.
+  - Interpret vague or indirect expressions (e.g., “the red one”, “vegan option”, “for kids”).
+  - Infer the intended menu item from context.
+- Map the interpreted intent to one of several **discrete skills**:
+  - `tuna`, `egg`, `tempura`, `cucumber_roll`
+- Automatically select and load the corresponding **Hugging Face policy model**:
+  - `HankLL/ServeTunaSushi`
+  - `HankLL/ServeEggSushi`
+  - `HankLL/ServeTempuraSushi`
+  - `HankLL/ServeCucumberRoll`
 
-### Usage
+This design lets the user give **natural, sometimes ambiguous voice commands** without knowing the exact menu names, while the system handles the mapping to the correct robot skill.
 
-1. Launch the application
-2. Wait for the Whisper model to load (status shows "Ready to take orders!")
-3. Click the "Tap to Order" button
-4. Speak your order clearly (e.g., "I'd like tuna please", "I want something red")
+#### 2.2 Modular “skill-per-menu” design
 
-### Available Menu Items
+Compared to “one giant model that does everything,” our approach:
 
-| Item |
-|------|
-| 🥚 Egg Sushi |
-| 🐟 Tuna Sushi |
-| 🥒 Cucumber Roll |
-| 🍤 Tempura (Fried Shrimp) |
+- Assigns **one dataset + one policy model per menu item**.
+- Makes it easy to:
+  - Add new dishes: collect demos → train a new policy → add one routing rule.
+  - Debug and retrain: only the failing menu’s model needs to be fixed.
+- Keeps each policy’s training data focused on a single behavior, which simplifies data collection and improves consistency.
 
-## Delivery URL
+#### 2.3 Natural voice-first interface with GUI / CLI
+
+- A Tkinter-based GUI provides a **“push-to-talk”** style interface:
+  - The user clicks a button, speaks, and sees:
+    - Recognized text
+    - Interpreted order
+    - Selected model name
+- A CLI version enables developers to:
+  - Quickly test the pipeline with text input (no microphone required).
+- This combination makes the system both **demo-friendly for non-technical users** and **easy to debug for developers**.
+
+---
+
+### 3. Technical Implementations  
+
+#### 3.1 Teleoperation / Dataset Capture  
+
+- **Robot & Sensors**
+  - Robot: SO-101 follower arm (`/dev/ttyACM0`)
+  - Cameras:
+    - Top camera (overhead view, USB device index like `/dev/videoX`, 640×480)
+    - Wrist camera (close-up hand view, 640×480)
+- **Teleoperation**
+  - We used `lerobot-record` with the `so101_follower` environment.
+  - The operator physically guided the SO-101 arm (kinesthetic teaching) to demonstrate:
+    - Placing tuna/egg/tempura on rice and then on a plate.
+    - Picking and serving cucumber rolls directly to a plate.
+  - We carefully designed the camera viewpoints so that:
+    - The target objects (rice, toppings, plate) are clearly visible.
+    - The workspace is visually simple and consistent.
+- **Visual isolation**
+  - We added simple blinds and arranged the background to **exclude unnecessary visual clutter**, making it easier for the model to learn the relevant parts of the scene.
+- **Dataset contents**
+  - Each episode records:
+    - Top camera image sequence (`observation.images.top`)
+    - Wrist camera images (`observation.images.wrist`)
+    - Robot state (joint positions and gripper state, `observation.state`)
+    - Actions (joint commands + gripper commands)
+  - Datasets are stored in LeRobot’s standard format and uploaded to Hugging Face Datasets.
+
+> *Image/video of teleoperation or dataset capture will be linked in the Additional Links section.*
+
+---
+
+#### 3.2 Training  
+
+- **Policy architecture**
+  - Framework: LeRobot
+  - Policy type: `act` (Action Chunking Transformer)
+  - Vision backbone: `resnet18` with ImageNet pretraining
+  - Inputs:
+    - `observation.images.top` (3×480×640)
+    - `observation.images.wrist` (3×480×640)
+    - `observation.state` (6D)
+  - Output:
+    - `action` (6D continuous joint-space actions)
+
+- **Training procedure**
+  - For each menu (tuna, egg, tempura, cucumber roll):
+    - Train an independent ACT policy using the corresponding dataset.
+    - Use batch size 64 and train for **around 25,000–30,000 steps** per model.
+  - Use Weights & Biases (`wandb`) to:
+    - Monitor training loss curves.
+    - Compare different runs.
+    - Decide when to stop training.
+  - For some models (e.g., egg sushi), we:
+    - Started from an existing checkpoint (`pretrained_model`).
+    - Applied additional fine-tuning with `--resume=true` to stabilize trajectories and improve success rates.
+
+- **Deployment**
+  - After training, each policy is pushed to Hugging Face via:
+    - `--policy.push_to_hub=true`
+    - `--policy.repo_id=HankLL/ServeXxxSushi`
+  - This makes each skill easily reusable and shareable.
+
+---
+
+#### 3.3 Inference  
+
+The runtime system is structured as an end-to-end pipeline:
+
+1. **Speech input & transcription**
+   - The GUI or CLI triggers recording via Python’s `sounddevice`.
+   - Audio is transcribed by the Whisper library into text.
+
+2. **Language understanding & routing**
+   - The Whisper transcription is sent to the Gemini API, which:
+     - Corrects recognition mistakes.
+     - Interprets indirect phrases (e.g., “the red one”, “something vegan”).
+     - Infers the user’s intended menu item.
+   - The inferred menu name is mapped to a skill:
+     - `tuna`, `egg`, `tempura`, or `cucumber_roll`.
+
+3. **Model selection & loading**
+   - The router selects the corresponding Hugging Face policy:
+     - e.g., `HankLL/ServeEggSushi/pretrained_model`.
+   - The model is loaded via LeRobot’s `from_pretrained`.
+
+4. **Robot control**
+   - SO-101 provides:
+     - Real-time images from top and wrist cameras.
+     - Current joint states.
+   - The ACT policy takes these observations and outputs an action sequence.
+   - Actions are sent to the robot at a fixed control rate, executing the serving motion until the task is completed.
+
+5. **User feedback**
+   - The GUI displays:
+     - Recognized text
+     - Interpreted order
+     - Selected model name
+   - This transparency helps users understand how the system interpreted their speech and which skill is being used.
+
+> *Image/video of inference and evaluation will be linked in the Additional Links section.*
+
+---
+
+### 4. Ease of Use  
+
+*How generalizable is your implementation across tasks or environments?*  
+*Flexibility and adaptability of the solution*  
+*Types of commands or interfaces needed to control the robot*
+
+#### 4.1 Generalizability
+
+- The core architecture:
+  - `Voice → Text → Task representation (skill name) → Robot policy`
+- This pattern is not limited to sushi; it can be reused for:
+  - Simple assembly tasks
+  - Item sorting and placement
+  - Other food preparation and serving scenarios
+- To add a new task:
+  1. Collect teleoperation demos with SO-101.
+  2. Train a new ACT policy with LeRobot.
+  3. Add a new skill name + routing rule in the Gemini-based mapping.
+
+#### 4.2 Flexibility and adaptability
+
+- Device-dependent parameters (microphone ID, camera indices, serial port, resolutions) are:
+  - Externalized as configuration in `sushi_voice_master.py` / `sushi_voice_master_ui.py`.
+  - Easily adjusted for different hardware setups and environments.
+- We have validated the system on:
+  - Ubuntu 24.04
+  - SO-101 robot arm
+  - Two USB cameras (top + wrist)
+- Adding a new menu item (task) only requires:
+  - Training a new policy on its dataset.
+  - Adding the model and label to the menu list and routing logic.
+
+#### 4.3 Commands and interfaces to control the robot
+
+- *Types of commands or interfaces needed to control the robot*
+    1. **Clone the repository**
+    ```bash
+    git clone https://github.com/Hank-LL/AMD_Robotics_Hackathon_2025_Team27.git
+    cd AMD_Robotics_Hackathon_2025_Team27/mission2
+    ```
+
+    2. **Install dependencies**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+    3. **Set environment variable for Gemini API**
+    ```bash
+    export GEMINI_API_KEY="your-gemini-api-key"
+    ```
+
+    4. **Check device configuration**
+    
+    Verify your microphone and camera device IDs:
+    ```bash
+    # List audio devices
+    python -c "import sounddevice as sd; print(sd.query_devices())"
+    
+    # List video devices
+    ls /dev/video*
+    ```
+    
+    Update device IDs in `code/sushi_voice_master_ui.py` if needed:
+    - `MIC_DEVICE`: Microphone device ID
+    - Camera indices in `cameras` parameter
+
+    5. **Run the application**
+    
+    **GUI Version (Recommended):**
+    ```bash
+    cd code
+    python sushi_voice_master_ui.py
+    ```
+    
+    **CLI Version:**
+    ```bash
+    cd code
+    python sushi_voice_master.py
+    ```
+
+## Additional Links
 
 Note: The robot switches models depending on the requested sushi item, so each menu entry has a dedicated dataset and model.
 
-Datasets on Hugging Face:
+- *Link to a video of your robot performing the task*
+### URL of your dataset in Hugging Face
 - [ServeEggSushi](https://huggingface.co/datasets/HankLL/ServeEggSushi)
 - [ServeTunaSushi](https://huggingface.co/datasets/HankLL/ServeTunaSushi)
 - [ServeCucumberRoll](https://huggingface.co/datasets/HankLL/ServeCucumberRoll)
 - [ServeTempuraSushi](https://huggingface.co/datasets/HankLL/ServeTempuraSushi)
 
-Models on Hugging Face:
+### URL of your model in Hugging Face
 - [ServeEggSushi](https://huggingface.co/HankLL/ServeEggSushi)
 - [ServeTunaSushi](https://huggingface.co/HankLL/ServeTunaSushi)
 - [ServeCucumberRoll](https://huggingface.co/HankLL/ServeCucumberRoll)
 - [ServeTempuraSushi](https://huggingface.co/HankLL/ServeTempuraSushi)
-
 
 ## System Structure
 
