@@ -92,12 +92,12 @@
 
 ### Available Menu Items
 
-| Item | Description |
-|------|-------------|
-| 🥚 Egg | Tamago sushi |
-| 🐟 Tuna | Maguro sushi |
-| 🥒 Cucumber Roll | Kappa maki |
-| 🍤 Tempura (Fried Shrimp) | Ebi tempura |
+| Item |
+|------|
+| 🥚 Egg Sushi |
+| 🐟 Tuna Sushi |
+| 🥒 Cucumber Roll |
+| 🍤 Tempura (Fried Shrimp) |
 
 **Delivery URL**
 
