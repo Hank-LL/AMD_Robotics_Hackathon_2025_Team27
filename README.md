@@ -167,7 +167,7 @@ Compared to “one giant model that does everything,” our approach:
 The runtime system is structured as an end-to-end pipeline:
 
 1. **Speech input & transcription**
-   - The GUI or CLI triggers recording via Python’s `sounddevice`.
+   - The GUI or CLI triggers recording via Python.
    - Audio is transcribed by the Whisper library into text.
 
 2. **Language understanding & routing**
@@ -176,7 +176,7 @@ The runtime system is structured as an end-to-end pipeline:
      - Interprets indirect phrases (e.g., “the red one”, “something vegan”).
      - Infers the user’s intended menu item.
    - The inferred menu name is mapped to a skill:
-     - `tuna`, `egg`, `tempura`, or `cucumber_roll`.
+     - `tuna`, `egg`, `tempura`, `cucumber_roll`, or 'greentea cup'.
 
 3. **Model selection & loading**
    - The router selects the corresponding Hugging Face policy:
@@ -192,9 +192,8 @@ The runtime system is structured as an end-to-end pipeline:
 
 5. **User feedback**
    - The GUI displays:
-     - Recognized text
-     - Interpreted order
-     - Selected model name
+     - Interpreted order menu texts
+     - Interpreted order images
    - This transparency helps users understand how the system interpreted their speech and which skill is being used.
 
 > *Image/video of inference and evaluation will be linked in the Additional Links section.*
@@ -202,10 +201,6 @@ The runtime system is structured as an end-to-end pipeline:
 ---
 
 ### 4. Ease of Use  
-
-*How generalizable is your implementation across tasks or environments?*  
-*Flexibility and adaptability of the solution*  
-*Types of commands or interfaces needed to control the robot*
 
 #### 4.1 Generalizability
 
