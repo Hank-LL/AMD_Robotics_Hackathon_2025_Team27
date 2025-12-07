@@ -50,20 +50,23 @@ TEXT_BG = "#f8f4e8"
 instruction_label = tk.Label(
     root,
     text="Press the button to place your order.",
-    font=("Helvetica", 13, "bold"),
+    font=("Arial", 20, "bold"),   # bigger & bolder
     bg=TEXT_BG,
+    fg="#000000",
 )
 status_label = tk.Label(
     root,
     textvariable=status_var,
-    font=("Helvetica", 11),
+    font=("Arial", 16, "bold"),   # bigger & bold
     bg=TEXT_BG,
+    fg="#000000",
 )
 result_label = tk.Label(
     root,
     textvariable=result_var,
-    font=("Helvetica", 11, "italic"),
+    font=("Arial", 16, "italic"),  # bigger & italic
     bg=TEXT_BG,
+    fg="#000000",
 )
 
 
@@ -139,7 +142,7 @@ def start_recording():
 start_button = tk.Button(
     root,
     text="🎤 Start Voice Order",
-    font=("Helvetica", 12, "bold"),
+    font=("Arial", 18, "bold"),   # bigger & bold
     width=20,
     height=2,
     relief="raised",
