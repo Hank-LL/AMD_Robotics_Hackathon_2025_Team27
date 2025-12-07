@@ -91,9 +91,8 @@ Compared to “one giant model that does everything,” our approach:
 
 - A Tkinter-based GUI provides a **“push-to-talk”** style interface:
   - The user clicks a button, speaks, and sees:
-    - Recognized text
-    - Interpreted order
-    - Selected model name
+    - Interpreted order menu texts
+    - Interpreted order images
 - A CLI version enables developers to:
   - Quickly test the pipeline with text input (no microphone required).
 - This combination makes the system both **demo-friendly for non-technical users** and **easy to debug for developers**.
