@@ -2,10 +2,10 @@
 **Title:** AMD Robotics Hackathon 2025 – Sushi Master
 
 **Team:** 中野同好会 (Nakano Club)  
-- Yuya Matsuda  
-- Daichi Kiyozaki  
-- Ryota Watanabe  
-- Mitsuki Takaoka  
+- Yuya Matsuda (松田 侑也)  
+- Daichi Kiyozaki (清崎 大地)  
+- Ryota Watanabe (渡邉 稜大)  
+- Mitsuki Takaoka (高岡 充伎)  
 
 ---
 
