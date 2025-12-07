@@ -143,7 +143,7 @@ Compared to “one giant model that does everything,” our approach:
     - `action` (6D continuous joint-space actions)
 
 - **Training procedure**
-  - For each menu (tuna, egg, tempura, cucumber roll):
+  - For each menu (tuna, egg, tempura, cucumber roll, greentea cup):
     - Train an independent ACT policy using the corresponding dataset.
     - Use batch size 64 and train for **around 25,000–30,000 steps** per model.
   - Use Weights & Biases (`wandb`) to:
