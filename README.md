@@ -5,8 +5,10 @@
 - Yuya Matsuda (松田 侑也)  
 - Daichi Kiyozaki (清崎 大地)  
 - Ryota Watanabe (渡邉 稜大)  
-- Mitsuki Takaoka (高岡 充伎)  
-
+- Mitsuki Takaoka (高岡 充伎)
+  
+**Link to the report**
+- [Event Report](https://moriokalab.com/news/1030)
 ---
 
 ## Task Summary
